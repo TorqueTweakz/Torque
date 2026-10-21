@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TORQUE — PC Performance Suite (Beta)</title>
+<meta name="description" content="One-click Windows, NVIDIA and in-game tuning for lower latency and smoother frames. Every change is previewed, backed up and revertible.">
+<meta property="og:title" content="TORQUE — PC Performance Suite (Beta)">
+<meta property="og:description" content="One click: LOW / MED / MAX / ULTRA. Auto-tunes Windows, NVIDIA and your games. Every change revertible.">
+<meta property="og:image" content="img/02-optimize.jpg">
+<link rel="icon" href="img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@1,700;1,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#070405; --panel:rgba(255,255,255,.045); --line:rgba(255,255,255,.09);
+    --text:#f4eeee; --dim:#b9a9aa; --faint:#7d6c6e; --red:#ff2d2d; --red2:#ff6a4a; --good:#46d38a;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{background:var(--bg);color:var(--text);font-family:Inter,system-ui,sans-serif;line-height:1.55;overflow-x:hidden}
+  body::before{content:"";position:fixed;inset:-20%;z-index:-1;pointer-events:none;
+    background:radial-gradient(40% 35% at 15% 10%,rgba(255,40,40,.35),transparent 70%),
+               radial-gradient(45% 40% at 90% 45%,rgba(200,20,30,.28),transparent 70%),
+               radial-gradient(40% 35% at 35% 100%,rgba(255,90,60,.18),transparent 70%);}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+  header{display:flex;align-items:center;gap:12px;padding:22px 0}
+  header img{width:40px;height:40px;border-radius:10px}
+  .brand{font-family:"Barlow Semi Condensed";font-style:italic;font-weight:800;font-size:26px;letter-spacing:.5px}
+  .brand small{display:block;font-family:Inter;font-style:normal;font-weight:700;font-size:10px;letter-spacing:2px;color:var(--red)}
+  .beta{margin-left:auto;font-size:12px;font-weight:700;letter-spacing:1px;color:var(--red);border:1px solid rgba(255,45,45,.5);padding:5px 10px;border-radius:20px}
+  h1{font-family:"Barlow Semi Condensed";font-style:italic;font-weight:800;font-size:clamp(44px,9vw,92px);line-height:.95;margin:28px 0 14px;text-transform:uppercase;
+     background:linear-gradient(90deg,#fff 0%,#ff7a7a 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .lead{font-size:clamp(16px,2.4vw,19px);color:var(--dim);max-width:640px;margin:0 0 28px}
+  .cta{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+  .btn{display:inline-flex;align-items:center;gap:10px;text-decoration:none;font-weight:700;border-radius:14px;padding:16px 26px;font-size:17px;transition:transform .15s,box-shadow .15s}
+  .btn.primary{color:#fff;background:linear-gradient(135deg,var(--red2),var(--red) 55%,#c40f22);box-shadow:0 10px 40px rgba(255,45,45,.45)}
+  .btn.primary:hover{transform:translateY(-2px);box-shadow:0 14px 50px rgba(255,45,45,.6)}
+  .btn.ghost{color:var(--text);background:var(--panel);border:1px solid var(--line)}
+  .meta{font-size:13px;color:var(--faint);margin-top:12px}
+  .shot{margin:44px 0 10px;border-radius:18px;overflow:hidden;border:1px solid rgba(255,90,90,.35);box-shadow:0 20px 80px rgba(255,30,30,.25)}
+  .shot img{display:block;width:100%;height:auto}
+  section{margin:64px 0}
+  h2{font-family:"Barlow Semi Condensed";font-style:italic;font-weight:800;font-size:clamp(30px,5vw,44px);text-transform:uppercase;margin:0 0 18px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:20px;backdrop-filter:blur(8px)}
+  .card h3{margin:0 0 6px;font-size:16px}
+  .card p{margin:0;color:var(--dim);font-size:14px}
+  .steps{counter-reset:s;list-style:none;padding:0;margin:0;display:grid;gap:12px}
+  .steps li{counter-increment:s;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px 18px 16px 62px;position:relative;color:var(--dim)}
+  .steps li b{color:var(--text)}
+  .steps li::before{content:counter(s);position:absolute;left:18px;top:14px;width:30px;height:30px;border-radius:9px;display:grid;place-items:center;
+    font-family:"Barlow Semi Condensed";font-style:italic;font-weight:800;color:#fff;background:linear-gradient(135deg,var(--red2),var(--red))}
+  .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px}
+  .gallery img{width:100%;border-radius:12px;border:1px solid var(--line);display:block}
+  code{font-family:ui-monospace,Consolas,monospace;font-size:12.5px;background:rgba(255,255,255,.06);padding:2px 6px;border-radius:6px;word-break:break-all}
+  .note{border-left:3px solid var(--red);padding:12px 16px;background:rgba(255,45,45,.07);border-radius:0 12px 12px 0;color:var(--dim);font-size:14px}
+  footer{color:var(--faint);font-size:13px;padding:40px 0 60px;border-top:1px solid var(--line);margin-top:70px}
+  footer a{color:var(--dim)}
+  @media (max-width:560px){.btn{width:100%;justify-content:center}.beta{display:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <img src="img/logo.png" alt="">
+    <div class="brand">TORQUE<small>PC PERFORMANCE SUITE</small></div>
+    <span class="beta">BETA · v2.3</span>
+  </header>
+
+  <h1>Your PC is<br>holding you back.</h1>
+  <p class="lead">One click tunes Windows, your NVIDIA driver and your games for lower latency and smoother frames — LOW, MED, MAX or ULTRA. Every change is previewed first, backed up, and undoable with one switch.</p>
+  <div class="cta">
+    <a class="btn primary" href="https://github.com/emaccessories/torque/releases/latest/download/TORQUE-v2.3.zip">⬇ Download for Windows</a>
+    <a class="btn ghost" href="#install">How to install</a>
+  </div>
+  <div class="meta">Windows 10/11 · 64-bit · ~100 MB · free beta</div>
+
+  <div class="shot"><img src="img/02-optimize.jpg" alt="TORQUE Quick Optimize screen with LOW, MED, MAX and ULTRA levels"></div>
+
+  <section>
+    <h2>What it does</h2>
+    <div class="grid">
+      <div class="card"><h3>⚡ One-click levels</h3><p>LOW, MED, MAX or ULTRA. TORQUE applies Windows, driver and game tweaks automatically — with a full old → new preview first.</p></div>
+      <div class="card"><h3>🎮 Auto-tunes your games</h3><p>Fortnite (Performance mode + Reflex), VALORANT, CS2, Apex, Rocket League, Marvel Rivals, Minecraft — or build your own custom setup per game.</p></div>
+      <div class="card"><h3>🟩 NVIDIA tuning</h3><p>Low Latency Mode, V-Sync off, unlimited shader cache and max-performance power for your games, written straight into the driver.</p></div>
+      <div class="card"><h3>↔ Stretched res</h3><p>1750×1080, 1650×1080 and more in one click — custom resolution, full-screen scaling and Fortnite settings done for you.</p></div>
+      <div class="card"><h3>🚀 Game Boost</h3><p>While you play: performance power plan, higher game priority, background apps paused. Ctrl+Alt+B toggles it in-game.</p></div>
+      <div class="card"><h3>↩ Fully revertible</h3><p>Every change is backed up. Flip the TORQUE switch off and your PC goes back exactly how it was.</p></div>
+    </div>
+  </section>
+
+  <section id="install">
+    <h2>Install in 1 minute</h2>
+    <ol class="steps">
+      <li><b>Download</b> the zip above and <b>extract</b> it (right-click → Extract All).</li>
+      <li>Run <b>Torque.exe</b> and click <b>Yes</b> on the admin prompt — it needs admin to change system settings.</li>
+      <li>Windows will probably say <b>"Windows protected your PC"</b> because the beta isn't code-signed yet. Click <b>More info → Run anyway</b>.</li>
+      <li>Create a password (or skip it), then go to <b>Optimize</b>, pick a level and click <b>Optimize</b>. Restart when it asks.</li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>Is it safe?</h2>
+    <div class="grid">
+      <div class="card"><h3>Nothing hidden</h3><p>Every tweak shows exactly which setting it changes, from what, to what — before you apply it. A System Restore point is created first.</p></div>
+      <div class="card"><h3>Anti-cheat safe</h3><p>Never injects into games, never reads game memory, never edits game files except each game's own settings file (backed up).</p></div>
+      <div class="card"><h3>No sketchy tweaks</h3><p>Defender, Windows Update, UAC and security mitigations are never disabled. No registry "cleaners", no mass-disabling services.</p></div>
+      <div class="card"><h3>No tracking</h3><p>No telemetry, no account. The only network use is the optional DNS speed test.</p></div>
+    </div>
+    <p class="note" style="margin-top:16px">Verify your download — SHA-256 of <code>TORQUE-v2.3.zip</code>:<br><code>4fbdc5915689ebc8424efa07a3c4a5633af69a3410ec79fff9982521074b199c</code></p>
+  </section>
+
+  <section>
+    <h2>Screens</h2>
+    <div class="gallery">
+      <img src="img/01-dashboard.jpg" alt="Dashboard with live stats" loading="lazy">
+      <img src="img/03-games.jpg" alt="Games auto-configure" loading="lazy">
+      <img src="img/06-personalize.jpg" alt="Personalize: colors, backgrounds, sounds" loading="lazy">
+    </div>
+  </section>
+
+  <section>
+    <h2>Beta testers</h2>
+    <p class="lead" style="margin-bottom:14px">Found a bug or got results? Run Benchmark Lab before and after and send the screenshot. Settings → About → Activity log shows everything TORQUE did.</p>
+    <p class="note">Undo everything any time: flip <b>TORQUE tweaks</b> off in the sidebar (or Backups &amp; Restore → Revert everything), then restart.</p>
+  </section>
+
+  <footer>
+    TORQUE beta · free for testing · Use at your own risk — every change is revertible, but you're changing system settings.<br>
+    Includes Intel PresentMon (MIT), ViVeTool (GPL-3.0), NvAPIWrapper (LGPL-3.0), Inter &amp; Barlow fonts (OFL). Licences are in the download.
+  </footer>
+</div>
+</body>
+</html>
