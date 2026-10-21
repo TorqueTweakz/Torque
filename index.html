@@ -3,133 +3,387 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>TORQUE — PC Performance Suite (Beta)</title>
-<meta name="description" content="One-click Windows, NVIDIA and in-game tuning for lower latency and smoother frames. Every change is previewed, backed up and revertible.">
-<meta property="og:title" content="TORQUE — PC Performance Suite (Beta)">
+<title>TORQUE — PC Performance Suite</title>
+<meta name="description" content="One click tunes Windows, your NVIDIA driver and your games for lower latency and smoother frames. Free during beta. Every change is revertible.">
+<meta property="og:title" content="TORQUE — PC Performance Suite (free beta)">
 <meta property="og:description" content="One click: LOW / MED / MAX / ULTRA. Auto-tunes Windows, NVIDIA and your games. Every change revertible.">
 <meta property="og:image" content="img/02-optimize.jpg">
+<meta name="theme-color" content="#0b0506">
 <link rel="icon" href="img/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@1,700;1,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@1,600;1,700;1,800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --bg:#070405; --panel:rgba(255,255,255,.045); --line:rgba(255,255,255,.09);
-    --text:#f4eeee; --dim:#b9a9aa; --faint:#7d6c6e; --red:#ff2d2d; --red2:#ff6a4a; --good:#46d38a;
-  }
-  *{box-sizing:border-box}
-  html,body{margin:0}
-  body{background:var(--bg);color:var(--text);font-family:Inter,system-ui,sans-serif;line-height:1.55;overflow-x:hidden}
-  body::before{content:"";position:fixed;inset:-20%;z-index:-1;pointer-events:none;
-    background:radial-gradient(40% 35% at 15% 10%,rgba(255,40,40,.35),transparent 70%),
-               radial-gradient(45% 40% at 90% 45%,rgba(200,20,30,.28),transparent 70%),
-               radial-gradient(40% 35% at 35% 100%,rgba(255,90,60,.18),transparent 70%);}
-  .wrap{max-width:1080px;margin:0 auto;padding:0 20px}
-  header{display:flex;align-items:center;gap:12px;padding:22px 0}
-  header img{width:40px;height:40px;border-radius:10px}
-  .brand{font-family:"Barlow Semi Condensed";font-style:italic;font-weight:800;font-size:26px;letter-spacing:.5px}
-  .brand small{display:block;font-family:Inter;font-style:normal;font-weight:700;font-size:10px;letter-spacing:2px;color:var(--red)}
-  .beta{margin-left:auto;font-size:12px;font-weight:700;letter-spacing:1px;color:var(--red);border:1px solid rgba(255,45,45,.5);padding:5px 10px;border-radius:20px}
-  h1{font-family:"Barlow Semi Condensed";font-style:italic;font-weight:800;font-size:clamp(44px,9vw,92px);line-height:.95;margin:28px 0 14px;text-transform:uppercase;
-     background:linear-gradient(90deg,#fff 0%,#ff7a7a 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
-  .lead{font-size:clamp(16px,2.4vw,19px);color:var(--dim);max-width:640px;margin:0 0 28px}
-  .cta{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
-  .btn{display:inline-flex;align-items:center;gap:10px;text-decoration:none;font-weight:700;border-radius:14px;padding:16px 26px;font-size:17px;transition:transform .15s,box-shadow .15s}
-  .btn.primary{color:#fff;background:linear-gradient(135deg,var(--red2),var(--red) 55%,#c40f22);box-shadow:0 10px 40px rgba(255,45,45,.45)}
-  .btn.primary:hover{transform:translateY(-2px);box-shadow:0 14px 50px rgba(255,45,45,.6)}
-  .btn.ghost{color:var(--text);background:var(--panel);border:1px solid var(--line)}
-  .meta{font-size:13px;color:var(--faint);margin-top:12px}
-  .shot{margin:44px 0 10px;border-radius:18px;overflow:hidden;border:1px solid rgba(255,90,90,.35);box-shadow:0 20px 80px rgba(255,30,30,.25)}
-  .shot img{display:block;width:100%;height:auto}
-  section{margin:64px 0}
-  h2{font-family:"Barlow Semi Condensed";font-style:italic;font-weight:800;font-size:clamp(30px,5vw,44px);text-transform:uppercase;margin:0 0 18px}
-  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
-  .card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:20px;backdrop-filter:blur(8px)}
-  .card h3{margin:0 0 6px;font-size:16px}
-  .card p{margin:0;color:var(--dim);font-size:14px}
-  .steps{counter-reset:s;list-style:none;padding:0;margin:0;display:grid;gap:12px}
-  .steps li{counter-increment:s;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px 18px 16px 62px;position:relative;color:var(--dim)}
-  .steps li b{color:var(--text)}
-  .steps li::before{content:counter(s);position:absolute;left:18px;top:14px;width:30px;height:30px;border-radius:9px;display:grid;place-items:center;
-    font-family:"Barlow Semi Condensed";font-style:italic;font-weight:800;color:#fff;background:linear-gradient(135deg,var(--red2),var(--red))}
-  .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px}
-  .gallery img{width:100%;border-radius:12px;border:1px solid var(--line);display:block}
-  code{font-family:ui-monospace,Consolas,monospace;font-size:12.5px;background:rgba(255,255,255,.06);padding:2px 6px;border-radius:6px;word-break:break-all}
-  .note{border-left:3px solid var(--red);padding:12px 16px;background:rgba(255,45,45,.07);border-radius:0 12px 12px 0;color:var(--dim);font-size:14px}
-  footer{color:var(--faint);font-size:13px;padding:40px 0 60px;border-top:1px solid var(--line);margin-top:70px}
-  footer a{color:var(--dim)}
-  @media (max-width:560px){.btn{width:100%;justify-content:center}.beta{display:none}}
+:root{
+  --bg:#060304; --glass:rgba(255,255,255,.045); --glass2:rgba(255,255,255,.07); --line:rgba(255,255,255,.09); --line2:rgba(255,90,90,.35);
+  --text:#f6efef; --dim:#bfaeaf; --faint:#7f6d6f; --red:#ff2d2d; --red2:#ff6a4a; --red3:#c40f22; --good:#46d38a; --warn:#ffb020;
+  --r:22px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,sans-serif;line-height:1.55;overflow-x:hidden;min-height:100vh}
+/* ---------- living background (same idea as the launcher) ---------- */
+.bg{position:fixed;inset:0;z-index:-2;overflow:hidden;background:linear-gradient(170deg,#0d0506 0%,#040203 70%)}
+.blob{position:absolute;border-radius:50%;filter:blur(10px);opacity:.9;will-change:transform}
+.b1{width:70vmax;height:55vmax;left:-20vmax;top:-25vmax;background:radial-gradient(closest-side,rgba(255,45,45,.55),rgba(255,45,45,.18) 45%,transparent 70%);animation:d1 26s ease-in-out infinite alternate}
+.b2{width:65vmax;height:52vmax;right:-22vmax;top:15vh;background:radial-gradient(closest-side,rgba(160,14,24,.6),rgba(160,14,24,.2) 45%,transparent 70%);animation:d2 34s ease-in-out infinite alternate}
+.b3{width:55vmax;height:44vmax;left:5vw;bottom:-25vmax;background:radial-gradient(closest-side,rgba(255,110,70,.32),transparent 70%);animation:d3 30s ease-in-out infinite alternate}
+@keyframes d1{to{transform:translate(9vmax,6vmax)}} @keyframes d2{to{transform:translate(-10vmax,-7vmax)}} @keyframes d3{to{transform:translate(8vmax,-6vmax)}}
+.lines{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.5;
+  background:repeating-linear-gradient(-22deg,transparent 0 46px,rgba(255,255,255,.028) 46px 48px)}
+.vig{position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(ellipse at 50% 40%,transparent 50%,rgba(0,0,0,.75) 100%)}
+canvas#embers{position:fixed;inset:0;z-index:-1;pointer-events:none}
+@media (prefers-reduced-motion:reduce){.blob{animation:none}canvas#embers{display:none}}
+
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+/* ---------- nav ---------- */
+nav{position:sticky;top:0;z-index:10;backdrop-filter:blur(18px) saturate(140%);-webkit-backdrop-filter:blur(18px) saturate(140%);
+  background:rgba(8,4,5,.55);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;gap:14px;height:66px}
+.brand{display:flex;align-items:center;gap:11px;text-decoration:none;color:var(--text)}
+.brand img{width:36px;height:36px;border-radius:9px;box-shadow:0 0 24px rgba(255,45,45,.45)}
+.brand b{font-family:"Barlow Semi Condensed";font-style:italic;font-weight:800;font-size:23px;letter-spacing:.4px;line-height:1}
+.brand small{display:block;font-size:8.5px;font-weight:800;letter-spacing:2.2px;color:var(--red);margin-top:2px}
+.tabs{display:flex;gap:4px;margin-left:auto;background:var(--glass);border:1px solid var(--line);border-radius:14px;padding:4px}
+.tab{appearance:none;border:0;background:transparent;color:var(--dim);font:600 13.5px Inter;padding:9px 14px;border-radius:10px;cursor:pointer;transition:.2s}
+.tab:hover{color:var(--text)}
+.tab.on{color:#fff;background:linear-gradient(135deg,var(--red2),var(--red) 55%,var(--red3));box-shadow:0 6px 22px rgba(255,45,45,.45)}
+.navdl{margin-left:10px}
+.tab .short{display:none}
+/* ---------- buttons ---------- */
+.btn{display:inline-flex;align-items:center;gap:10px;text-decoration:none;font-weight:700;border-radius:14px;padding:15px 24px;font-size:16px;cursor:pointer;border:0;transition:transform .15s,box-shadow .2s,background .2s;position:relative;overflow:hidden}
+.btn svg{width:19px;height:19px}
+.btn.primary{color:#fff;background:linear-gradient(135deg,var(--red2),var(--red) 55%,var(--red3));box-shadow:0 10px 40px rgba(255,45,45,.45)}
+.btn.primary::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.35) 50%,transparent 70%);transform:translateX(-120%);animation:sheen 3.2s ease-in-out infinite}
+@keyframes sheen{60%,100%{transform:translateX(120%)}}
+.btn.primary:hover{transform:translateY(-2px) scale(1.02);box-shadow:0 16px 54px rgba(255,45,45,.62)}
+.btn.ghost{color:var(--text);background:var(--glass2);border:1px solid var(--line)}
+.btn.ghost:hover{border-color:var(--line2);transform:translateY(-1px)}
+.btn.sm{padding:10px 16px;font-size:14px;border-radius:11px}
+/* ---------- hero ---------- */
+.hero{display:grid;grid-template-columns:1.05fr 1fr;gap:40px;align-items:center;padding:64px 0 30px}
+.pill{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:800;letter-spacing:1.4px;color:#fff;background:rgba(255,45,45,.14);border:1px solid rgba(255,45,45,.45);padding:7px 13px;border-radius:30px;text-transform:uppercase}
+.pill i{width:8px;height:8px;border-radius:50%;background:var(--good);box-shadow:0 0 10px var(--good);animation:blink 1.6s infinite}
+@keyframes blink{50%{opacity:.35}}
+h1{font-family:"Barlow Semi Condensed";font-style:italic;font-weight:800;font-size:clamp(50px,7.6vw,96px);line-height:.9;margin:20px 0 18px;text-transform:uppercase;letter-spacing:-.5px}
+h1 .grad{background:linear-gradient(90deg,#ffb4a0,#ff2d2d 60%,#ff5a5a);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 0 28px rgba(255,45,45,.45))}
+.lead{font-size:clamp(16px,1.9vw,19px);color:var(--dim);max-width:560px;margin:0 0 26px}
+.cta{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.meta{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:13px;color:var(--faint);margin-top:16px}
+.meta span::before{content:"✓ ";color:var(--good);font-weight:800}
+.price{margin-top:22px;display:flex;gap:14px;align-items:center;background:var(--glass);border:1px solid var(--line);border-radius:16px;padding:14px 16px;max-width:560px}
+.price b{font-family:"Barlow Semi Condensed";font-style:italic;font-weight:800;font-size:30px;line-height:1;color:var(--good)}
+.price p{margin:0;font-size:13.5px;color:var(--dim)}
+.screen{position:relative;border-radius:20px;padding:10px;background:linear-gradient(160deg,rgba(255,90,90,.35),rgba(255,255,255,.05) 40%,rgba(255,45,45,.25));
+  box-shadow:0 30px 90px rgba(255,30,30,.3),0 0 0 1px rgba(255,255,255,.05) inset;transform:perspective(1200px) rotateY(-9deg) rotateX(4deg);transition:transform .6s}
+.screen:hover{transform:perspective(1200px) rotateY(-3deg) rotateX(1deg)}
+.screen img{display:block;width:100%;border-radius:13px}
+.screen img.glowlogo{position:absolute;width:78px;height:78px;border-radius:18px}
+.glowlogo{position:absolute;left:-26px;top:-26px;width:78px;height:78px;border-radius:18px;box-shadow:0 0 50px rgba(255,45,45,.7);animation:pulse 2.6s ease-in-out infinite}
+@keyframes pulse{50%{box-shadow:0 0 80px rgba(255,45,45,.95)}}
+/* ---------- sections ---------- */
+.panel{display:none;animation:in .45s ease}
+.panel.on{display:block}
+@keyframes in{from{opacity:0;transform:translateY(14px)}}
+section{margin:56px 0}
+h2{font-family:"Barlow Semi Condensed";font-style:italic;font-weight:800;font-size:clamp(32px,4.6vw,50px);text-transform:uppercase;margin:0 0 8px;line-height:1}
+h2 .grad{background:linear-gradient(90deg,#fff,#ff6a6a);-webkit-background-clip:text;background-clip:text;color:transparent}
+.sub{color:var(--dim);margin:0 0 22px;max-width:720px}
+.bar{width:44px;height:4px;border-radius:3px;background:linear-gradient(90deg,var(--red2),var(--red));box-shadow:0 0 14px rgba(255,45,45,.7);margin-bottom:14px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px}
+.card{position:relative;background:linear-gradient(160deg,rgba(255,255,255,.07),rgba(255,255,255,.025));border:1px solid var(--line);border-radius:var(--r);padding:22px;
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);transition:transform .25s,border-color .25s,box-shadow .25s}
+.card:hover{transform:translateY(-4px);border-color:var(--line2);box-shadow:0 14px 44px rgba(255,40,40,.2)}
+.card h3{margin:12px 0 6px;font-size:16.5px}
+.card p{margin:0;color:var(--dim);font-size:14px}
+.ico{width:44px;height:44px;border-radius:13px;display:grid;place-items:center;background:linear-gradient(135deg,var(--red2),var(--red) 55%,var(--red3));box-shadow:0 8px 24px rgba(255,45,45,.45)}
+.ico svg{width:22px;height:22px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.levels{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.lvl{border-radius:18px;padding:18px;background:var(--glass);border:1px solid var(--line)}
+.lvl em{font-family:"Barlow Semi Condensed";font-style:italic;font-weight:800;font-size:30px}
+.lvl .bars{display:flex;gap:4px;margin:6px 0 10px}.lvl .bars i{width:16px;height:5px;border-radius:3px;background:rgba(255,255,255,.12)}
+.lvl .bars i.f{background:linear-gradient(90deg,var(--red2),var(--red))}
+.lvl p{margin:0;font-size:13px;color:var(--dim)}
+.lvl.ultra{border-color:rgba(255,45,45,.45);background:rgba(255,45,45,.08)}
+.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px}
+.gallery img{width:100%;border-radius:14px;border:1px solid var(--line);display:block;transition:transform .3s}
+.gallery img:hover{transform:scale(1.02)}
+/* trust */
+.verdict{display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:center;padding:24px;border-radius:var(--r);background:linear-gradient(135deg,rgba(70,211,138,.14),rgba(255,255,255,.03));border:1px solid rgba(70,211,138,.35)}
+.verdict .big{font-family:"Barlow Semi Condensed";font-style:italic;font-weight:800;font-size:44px;color:var(--good);line-height:1}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.list{list-style:none;padding:0;margin:0;display:grid;gap:9px}
+.list li{padding-left:28px;position:relative;color:var(--dim);font-size:14.5px}
+.list.yes li::before{content:"✓";position:absolute;left:0;color:var(--good);font-weight:800}
+.list.no li::before{content:"✕";position:absolute;left:0;color:var(--red);font-weight:800}
+.list b{color:var(--text)}
+.note{border-left:3px solid var(--red);padding:14px 18px;background:rgba(255,45,45,.07);border-radius:0 14px 14px 0;color:var(--dim);font-size:14px}
+code{font-family:ui-monospace,Consolas,monospace;font-size:12.5px;background:rgba(255,255,255,.07);padding:3px 7px;border-radius:7px;word-break:break-all;color:#ffd7d0}
+.hash{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:10px}
+table{width:100%;border-collapse:collapse;font-size:13px}
+.tablewrap{border:1px solid var(--line);border-radius:18px;overflow:hidden;background:rgba(0,0,0,.25)}
+.tablescroll{max-height:520px;overflow:auto}
+th{position:sticky;top:0;background:#140809;text-align:left;font-size:11px;letter-spacing:1.4px;text-transform:uppercase;color:var(--faint);padding:12px 14px;border-bottom:1px solid var(--line)}
+td{padding:11px 14px;border-bottom:1px solid rgba(255,255,255,.05);vertical-align:top;color:var(--dim)}
+td b{display:block;color:var(--text);font-size:13.5px}
+td span{display:block;font-size:12px;color:var(--faint);margin-top:2px}
+.lv{font-style:normal;font-weight:800;font-size:11px;letter-spacing:1px;padding:3px 8px;border-radius:20px;background:rgba(255,255,255,.07)}
+.lv-low{color:#ffb0a8}.lv-med{color:#ff7d70}.lv-max{color:#ff4040}.lv-ultra{color:#fff;background:rgba(255,45,45,.35)}
+/* install */
+.steps{counter-reset:s;list-style:none;padding:0;margin:0;display:grid;gap:12px}
+.steps li{counter-increment:s;background:var(--glass);border:1px solid var(--line);border-radius:18px;padding:18px 20px 18px 74px;position:relative;color:var(--dim)}
+.steps li b{color:var(--text)}
+.steps li::before{content:counter(s);position:absolute;left:20px;top:16px;width:36px;height:36px;border-radius:11px;display:grid;place-items:center;
+  font-family:"Barlow Semi Condensed";font-style:italic;font-weight:800;font-size:20px;color:#fff;background:linear-gradient(135deg,var(--red2),var(--red));box-shadow:0 6px 20px rgba(255,45,45,.45)}
+.smartscreen{display:flex;gap:16px;align-items:center;flex-wrap:wrap;margin-top:6px}
+.fake{font-size:12.5px;border-radius:8px;background:#0b5394;color:#fff;padding:10px 14px;max-width:340px}
+.fake u{font-weight:700}
+details{background:var(--glass);border:1px solid var(--line);border-radius:16px;padding:0 18px;margin-bottom:10px;transition:border-color .2s}
+details[open]{border-color:var(--line2)}
+summary{cursor:pointer;list-style:none;padding:16px 0;font-weight:700;display:flex;justify-content:space-between;gap:10px}
+summary::after{content:"+";color:var(--red);font-size:20px;line-height:1}
+details[open] summary::after{content:"–"}
+details p{margin:0 0 16px;color:var(--dim);font-size:14.5px}
+footer{color:var(--faint);font-size:12.5px;padding:34px 0 60px;border-top:1px solid var(--line);margin-top:70px}
+/* reveal on scroll */
+.rv{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+.rv.vis{opacity:1;transform:none}
+@media (max-width:900px){
+  .hero{grid-template-columns:1fr;padding-top:36px}.screen{transform:none}.levels{grid-template-columns:1fr 1fr}.two{grid-template-columns:1fr}
+  .tabs{overflow-x:auto;max-width:calc(100vw - 150px)}.navdl{display:none}
+}
+@media (max-width:620px){.tab .long{display:none}.tab .short{display:inline}}
+@media (max-width:520px){.btn{width:100%;justify-content:center}.tab{padding:8px 10px;font-size:12.5px}.brand small{display:none}.levels{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
-<div class="wrap">
-  <header>
-    <img src="img/logo.png" alt="">
-    <div class="brand">TORQUE<small>PC PERFORMANCE SUITE</small></div>
-    <span class="beta">BETA · v2.3</span>
-  </header>
+<div class="bg"><div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div></div>
+<div class="lines"></div><canvas id="embers"></canvas><div class="vig"></div>
 
-  <h1>Your PC is<br>holding you back.</h1>
-  <p class="lead">One click tunes Windows, your NVIDIA driver and your games for lower latency and smoother frames — LOW, MED, MAX or ULTRA. Every change is previewed first, backed up, and undoable with one switch.</p>
-  <div class="cta">
-    <a class="btn primary" href="https://github.com/emaccessories/torque/releases/latest/download/TORQUE-v2.3.zip">⬇ Download for Windows</a>
-    <a class="btn ghost" href="#install">How to install</a>
+<nav><div class="wrap">
+  <a class="brand" href="#overview" data-go="overview"><img src="img/logo.png" alt=""><div><b>TORQUE</b><small>PC PERFORMANCE SUITE</small></div></a>
+  <div class="tabs" role="tablist">
+    <button class="tab on" data-go="overview">Overview</button>
+    <button class="tab" data-go="trust"><span class="long">Should I trust it?</span><span class="short">Trust?</span></button>
+    <button class="tab" data-go="install">Install</button>
+    <button class="tab" data-go="faq">FAQ</button>
   </div>
-  <div class="meta">Windows 10/11 · 64-bit · ~100 MB · free beta</div>
+  <a class="btn primary sm navdl" href="downloads/TORQUE-v2.3.zip" download>Download</a>
+</div></nav>
 
-  <div class="shot"><img src="img/02-optimize.jpg" alt="TORQUE Quick Optimize screen with LOW, MED, MAX and ULTRA levels"></div>
+<div class="wrap">
+<!-- ======================= OVERVIEW ======================= -->
+<div class="panel on" id="p-overview">
+  <div class="hero">
+    <div>
+      <span class="pill"><i></i> Free beta · v2.3</span>
+      <h1>Your PC is<br><span class="grad">holding you back.</span></h1>
+      <p class="lead">TORQUE tunes Windows, your NVIDIA driver and your games in one click — built for lower input delay, steadier frame times and fewer stutters. You see every change before it happens, and one switch undoes all of it.</p>
+      <div class="cta">
+        <a class="btn primary" href="downloads/TORQUE-v2.3.zip" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0-5-5m5 5 5-5M4 19h16"/></svg>Download for Windows</a>
+        <button class="btn ghost" data-go="trust">Is it safe? →</button>
+      </div>
+      <div class="meta"><span>Windows 10 & 11</span><span>75 MB</span><span>No account</span><span>Fully revertible</span></div>
+      <div class="price"><b>FREE</b><p><strong style="color:var(--text)">Free while TORQUE is in beta.</strong> A paid version is coming later — download now and help shape it.</p></div>
+    </div>
+    <div class="screen rv"><img class="glowlogo" src="img/logo.png" alt=""><img src="img/02-optimize.jpg" alt="TORQUE Quick Optimize screen"></div>
+  </div>
 
-  <section>
-    <h2>What it does</h2>
+  <section class="rv">
+    <div class="bar"></div><h2>One click. <span class="grad">Four levels.</span></h2>
+    <p class="sub">Pick how far to go. TORQUE previews every old → new value, then applies it all automatically.</p>
+    <div class="levels">
+      <div class="lvl"><em>LOW</em><div class="bars"><i class="f"></i><i></i><i></i><i></i></div><p>Safe essentials: max refresh rate, NVIDIA low-latency driver profile, Game Mode, no forced restarts.</p></div>
+      <div class="lvl"><em>MED</em><div class="bars"><i class="f"></i><i class="f"></i><i></i><i></i></div><p>+ USB / PCIe / CPU latency power settings, debloat, startup cleanup, tuned game configs.</p></div>
+      <div class="lvl"><em>MAX</em><div class="bars"><i class="f"></i><i class="f"></i><i class="f"></i><i></i></div><p>+ Windows Low Latency Profile, fastest DNS, competitive game configs, Game Boost.</p></div>
+      <div class="lvl ultra"><em>ULTRA</em><div class="bars"><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i></div><p>+ every experimental tweak and GPU scheduling. Warning first, needs a restart.</p></div>
+    </div>
+  </section>
+
+  <section class="rv">
+    <div class="bar"></div><h2>What's <span class="grad">inside</span></h2>
     <div class="grid">
-      <div class="card"><h3>⚡ One-click levels</h3><p>LOW, MED, MAX or ULTRA. TORQUE applies Windows, driver and game tweaks automatically — with a full old → new preview first.</p></div>
-      <div class="card"><h3>🎮 Auto-tunes your games</h3><p>Fortnite (Performance mode + Reflex), VALORANT, CS2, Apex, Rocket League, Marvel Rivals, Minecraft — or build your own custom setup per game.</p></div>
-      <div class="card"><h3>🟩 NVIDIA tuning</h3><p>Low Latency Mode, V-Sync off, unlimited shader cache and max-performance power for your games, written straight into the driver.</p></div>
-      <div class="card"><h3>↔ Stretched res</h3><p>1750×1080, 1650×1080 and more in one click — custom resolution, full-screen scaling and Fortnite settings done for you.</p></div>
-      <div class="card"><h3>🚀 Game Boost</h3><p>While you play: performance power plan, higher game priority, background apps paused. Ctrl+Alt+B toggles it in-game.</p></div>
-      <div class="card"><h3>↩ Fully revertible</h3><p>Every change is backed up. Flip the TORQUE switch off and your PC goes back exactly how it was.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="12" rx="4"/><path d="M7 13h4M9 11v4M15.5 12.5h.01M18 14.5h.01"/></svg></div><h3>Auto-tunes your games</h3><p>Fortnite (Performance mode + Reflex), VALORANT, CS2, Apex, Rocket League, Marvel Rivals, Minecraft — or build a custom setup per game.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M9 9h6v6H9zM9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 15h3M1 9h3M1 15h3"/></svg></div><h3>NVIDIA driver tuning</h3><p>Low Latency Mode, V-Sync off, unlimited shader cache and max-performance power for your games — written straight into the driver.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div><h3>Stretched res in one click</h3><p>1750×1080, 1650×1080 and more. Creates the resolution, sets full-screen scaling and configures Fortnite for you.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg></div><h3>Game Boost</h3><p>While you play: performance power plan, higher game priority, background apps paused. <b>Ctrl+Alt+B</b> toggles it in-game.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="m7 15 4-4 3 3 6-6"/></svg></div><h3>Benchmark Lab</h3><p>Real frame-time capture (Intel PresentMon): average FPS, 1% and 0.1% lows, before vs after. Proof, not promises.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg></div><h3>Undo everything</h3><p>Every change is backed up. Flip the TORQUE switch off and your PC goes back exactly how it was.</p></div>
     </div>
   </section>
 
-  <section id="install">
-    <h2>Install in 1 minute</h2>
-    <ol class="steps">
-      <li><b>Download</b> the zip above and <b>extract</b> it (right-click → Extract All).</li>
-      <li>Run <b>Torque.exe</b> and click <b>Yes</b> on the admin prompt — it needs admin to change system settings.</li>
-      <li>Windows will probably say <b>"Windows protected your PC"</b> because the beta isn't code-signed yet. Click <b>More info → Run anyway</b>.</li>
-      <li>Create a password (or skip it), then go to <b>Optimize</b>, pick a level and click <b>Optimize</b>. Restart when it asks.</li>
-    </ol>
+  <section class="rv">
+    <div class="bar"></div><h2>Looks <span class="grad">the part</span></h2>
+    <p class="sub">Liquid-glass interface, live stats, sounds and a Personalize page — plus a Low Performance mode for older PCs and VMs.</p>
+    <div class="gallery"><img src="img/01-dashboard.jpg" alt="Dashboard" loading="lazy"><img src="img/03-games.jpg" alt="Games" loading="lazy"><img src="img/06-personalize.jpg" alt="Personalize" loading="lazy"></div>
   </section>
-
-  <section>
-    <h2>Is it safe?</h2>
-    <div class="grid">
-      <div class="card"><h3>Nothing hidden</h3><p>Every tweak shows exactly which setting it changes, from what, to what — before you apply it. A System Restore point is created first.</p></div>
-      <div class="card"><h3>Anti-cheat safe</h3><p>Never injects into games, never reads game memory, never edits game files except each game's own settings file (backed up).</p></div>
-      <div class="card"><h3>No sketchy tweaks</h3><p>Defender, Windows Update, UAC and security mitigations are never disabled. No registry "cleaners", no mass-disabling services.</p></div>
-      <div class="card"><h3>No tracking</h3><p>No telemetry, no account. The only network use is the optional DNS speed test.</p></div>
-    </div>
-    <p class="note" style="margin-top:16px">Verify your download — SHA-256 of <code>TORQUE-v2.3.zip</code>:<br><code>4fbdc5915689ebc8424efa07a3c4a5633af69a3410ec79fff9982521074b199c</code></p>
-  </section>
-
-  <section>
-    <h2>Screens</h2>
-    <div class="gallery">
-      <img src="img/01-dashboard.jpg" alt="Dashboard with live stats" loading="lazy">
-      <img src="img/03-games.jpg" alt="Games auto-configure" loading="lazy">
-      <img src="img/06-personalize.jpg" alt="Personalize: colors, backgrounds, sounds" loading="lazy">
-    </div>
-  </section>
-
-  <section>
-    <h2>Beta testers</h2>
-    <p class="lead" style="margin-bottom:14px">Found a bug or got results? Run Benchmark Lab before and after and send the screenshot. Settings → About → Activity log shows everything TORQUE did.</p>
-    <p class="note">Undo everything any time: flip <b>TORQUE tweaks</b> off in the sidebar (or Backups &amp; Restore → Revert everything), then restart.</p>
-  </section>
-
-  <footer>
-    TORQUE beta · free for testing · Use at your own risk — every change is revertible, but you're changing system settings.<br>
-    Includes Intel PresentMon (MIT), ViVeTool (GPL-3.0), NvAPIWrapper (LGPL-3.0), Inter &amp; Barlow fonts (OFL). Licences are in the download.
-  </footer>
 </div>
+
+<!-- ======================= TRUST ======================= -->
+<div class="panel" id="p-trust">
+  <section>
+    <div class="bar"></div><h2>Should I <span class="grad">trust it?</span></h2>
+    <p class="sub">Fair question — TORQUE asks for admin rights and changes system settings. Here's exactly what it does, what it never does, and how to check for yourself.</p>
+    <div class="verdict rv"><div class="big">NOT A VIRUS</div><p style="margin:0;color:var(--dim)">TORQUE only changes documented Windows, driver and game settings — and shows you each one, with its old and new value, <b style="color:var(--text)">before</b> it changes anything. Every change is saved so it can be undone.</p></div>
+  </section>
+
+  <section class="rv">
+    <div class="two">
+      <div class="card"><h3 style="margin-top:0">✓ What TORQUE does</h3><ul class="list yes">
+        <li>Changes <b>documented settings</b> only: registry values, power plans, services (set to Manual — never Disabled), driver profiles, your games' own settings files</li>
+        <li><b>Previews</b> every old → new value before applying</li>
+        <li>Creates a <b>System Restore point</b> first</li>
+        <li><b>Backs up</b> every original value, and rolls back automatically if a change fails</li>
+        <li>Logs every action in the <b>Activity Log</b></li>
+      </ul></div>
+      <div class="card"><h3 style="margin-top:0">✕ What TORQUE never does</h3><ul class="list no">
+        <li>Never disables <b>Windows Defender, SmartScreen, UAC, Windows Update</b> or CPU security mitigations</li>
+        <li>Never <b>injects into games</b>, reads game memory or edits game files — <b>anti-cheat safe</b></li>
+        <li>No registry "cleaners", no mass-disabling services, no HPET myths</li>
+        <li><b>No tracking</b>: no account, no telemetry — the only network use is the optional DNS speed test</li>
+        <li>Never touches anti-cheat, audio, NVIDIA, Logitech or game-server apps</li>
+      </ul></div>
+    </div>
+  </section>
+
+  <section class="rv">
+    <div class="bar"></div><h2>"Windows <span class="grad">protected your PC</span>"?</h2>
+    <p class="sub">You'll probably see this on first launch. It doesn't mean TORQUE is dangerous — it means the beta isn't <b style="color:var(--text)">code-signed</b> yet. Signing costs money and builds reputation over time, so brand-new apps from small developers trigger it. A signed build comes with the paid version.</p>
+    <div class="smartscreen"><div class="fake"><b>Windows protected your PC</b><br>Microsoft Defender SmartScreen prevented an unrecognized app from starting…<br><u>More info</u> → <u>Run anyway</u></div>
+      <p style="margin:0;color:var(--dim);max-width:420px">Click <b style="color:var(--text)">More info</b>, then <b style="color:var(--text)">Run anyway</b>. Some antivirus apps also flag unsigned tweakers that ask for admin — that's a reputation thing, not malware.</p></div>
+  </section>
+
+  <section class="rv">
+    <div class="bar"></div><h2>Check it <span class="grad">yourself</span></h2>
+    <div class="grid">
+      <div class="card"><h3 style="margin-top:0">1 · Scan it</h3><p>Upload the zip to <b style="color:var(--text)">VirusTotal</b> (virustotal.com) — 70+ antivirus engines check it in seconds.</p></div>
+      <div class="card"><h3 style="margin-top:0">2 · Verify the file</h3><p>Make sure you got the real file: in PowerShell run <code>Get-FileHash TORQUE-v2.3.zip</code> and compare with the hash below.</p></div>
+      <div class="card"><h3 style="margin-top:0">3 · Read before you click</h3><p>Every tweak's preview shows exactly what changes. Nothing applies until you click Apply.</p></div>
+    </div>
+    <div class="note" style="margin-top:14px">SHA-256 of <code>TORQUE-v2.3.zip</code>
+      <div class="hash"><code id="sha">fbc66840afe4d8cbeeaf497493464eee2e8a04949b43feb3770c830b5ca15468</code><button class="btn ghost sm" id="copy">Copy</button></div></div>
+  </section>
+
+  <section class="rv">
+    <div class="bar"></div><h2>Every change, <span class="grad">listed</span></h2>
+    <p class="sub">The complete list of tweaks TORQUE can make, and what each one actually changes. Nothing else is touched. (Plus the automations shown on the Optimize screen: refresh rate, NVIDIA profile, game configs, debloat, startup apps, DNS — all backed up.)</p>
+    <div class="tablewrap"><div class="tablescroll"><table>
+      <thead><tr><th>Tweak</th><th>Level</th><th>What it changes</th></tr></thead>
+      <tbody><tr><td><b>Game Mode on</b><span>Small — fewer background interruptions</span></td><td><em class='lv lv-low'>LOW</em></td><td>Registry HKCU\…\GameBar → AutoGameModeEnabled = 1<br>Registry HKCU\…\GameBar → AllowAutoGameMode = 1</td></tr>
+<tr><td><b>Xbox Game Bar background recording off</b><span>Small FPS, frees the GPU video encoder</span></td><td><em class='lv lv-low'>LOW</em></td><td>Registry HKCU\…\GameConfigStore → GameDVR_Enabled = 0<br>Registry HKCU\…\GameDVR → AppCaptureEnabled = 0<br>Registry HKCU\…\GameDVR → HistoricalCaptureEnabled = 0</td></tr>
+<tr><td><b>Game Bar controller button off</b><span>Quality of life</span></td><td><em class='lv lv-low'>LOW</em></td><td>Registry HKCU\…\GameBar → UseNexusForGameBarEnabled = 0</td></tr>
+<tr><td><b>No forced update restarts while signed in</b><span>Quality of life</span></td><td><em class='lv lv-low'>LOW</em></td><td>Registry HKLM\…\AU → NoAutoRebootWithLoggedOnUsers = 1</td></tr>
+<tr><td><b>Sticky/Filter/Toggle key pop-ups off</b><span>Quality of life</span></td><td><em class='lv lv-low'>LOW</em></td><td>Registry HKCU\…\StickyKeys → Flags = 506<br>Registry HKCU\…\Keyboard Response → Flags = 122<br>Registry HKCU\…\ToggleKeys → Flags = 58</td></tr>
+<tr><td><b>Optimizations for windowed games</b><span>Lower input latency in borderless/windowed DX10/11 games</span></td><td><em class='lv lv-low'>LOW</em></td><td>Windows graphics setting SwapEffectUpgradeEnable → 1</td></tr>
+<tr><td><b>Variable refresh rate for all games</b><span>Smoother frame pacing on G-SYNC / FreeSync monitors</span></td><td><em class='lv lv-low'>LOW</em></td><td>Windows graphics setting VRROptimizeEnable → 1</td></tr>
+<tr><td><b>Fastest keyboard repeat</b><span>Shorter key-repeat delay (typing / chat / menus)</span></td><td><em class='lv lv-low'>LOW</em></td><td>Registry HKCU\…\Keyboard → KeyboardDelay = 0<br>Registry HKCU\…\Keyboard → KeyboardSpeed = 31</td></tr>
+<tr><td><b>Stop uploading updates to other PCs</b><span>Frees upload bandwidth</span></td><td><em class='lv lv-low'>LOW</em></td><td>Registry HKLM\…\DeliveryOptimization → DODownloadMode = 0</td></tr>
+<tr><td><b>Store apps can&#x27;t run in background</b><span>Small — less background CPU/RAM</span></td><td><em class='lv lv-low'>LOW</em></td><td>Registry HKCU\…\BackgroundAccessApplications → GlobalUserDisabled = 1</td></tr>
+<tr><td><b>Performance power plan</b><span>Small — faster clock ramp-up; more idle power</span></td><td><em class='lv lv-low'>LOW</em></td><td>Active power plan → High/Ultimate Performance</td></tr>
+<tr><td><b>Snappier desktop animations</b><span>Desktop feels faster; no in-game FPS change</span></td><td><em class='lv lv-low'>LOW</em></td><td>Registry HKCU\…\Desktop → MenuShowDelay = 0<br>Registry HKCU\…\WindowMetrics → MinAnimate = 0<br>Registry HKCU\…\Advanced → TaskbarAnimations = 0</td></tr>
+<tr><td><b>Transparency effects off</b><span>Tiny — helps low-end GPUs only</span></td><td><em class='lv lv-low'>LOW</em></td><td>Registry HKCU\…\Personalize → EnableTransparency = 0</td></tr>
+<tr><td><b>Widgets off</b><span>Frees ~100–300 MB RAM and background web traffic</span></td><td><em class='lv lv-med'>MED</em></td><td>Registry HKLM\…\Dsh → AllowNewsAndInterests = 0</td></tr>
+<tr><td><b>No suggested apps / auto-installed promos</b><span>Stops Windows silently installing promo apps</span></td><td><em class='lv lv-med'>MED</em></td><td>Registry HKCU\…\ContentDeliveryManager → SilentInstalledAppsEnabled = 0<br>Registry HKCU\…\ContentDeliveryManager → SystemPaneSuggestionsEnabled = 0<br>Registry HKCU\…\ContentDeliveryManager → SoftLandingEnabled = 0<br>Registry HKCU\…\ContentDeliveryManager → SubscribedContent-338388Enabled = 0<br>Registry HKCU\…\ContentDeliveryManager → SubscribedContent-338389Enabled = 0<br>Registry HKCU\…\ContentDeliveryManager → SubscribedContent-353694Enabled = 0<br>Registry HKCU\…\ContentDeliveryManager → SubscribedContent-353696Enabled = 0</td></tr>
+<tr><td><b>Mouse acceleration off</b><span>Consistent aim (1:1 mouse movement)</span></td><td><em class='lv lv-med'>MED</em></td><td>Registry HKCU\…\Mouse → MouseSpeed = 0<br>Registry HKCU\…\Mouse → MouseThreshold1 = 0<br>Registry HKCU\…\Mouse → MouseThreshold2 = 0</td></tr>
+<tr><td><b>USB selective suspend off</b><span>Stops mouse/keyboard/headset wake-up lag and dropouts</span></td><td><em class='lv lv-med'>MED</em></td><td>Power plan setting → 0 (plugged in)</td></tr>
+<tr><td><b>PCI Express link power saving off</b><span>Removes GPU/NVMe link wake-up latency</span></td><td><em class='lv lv-med'>MED</em></td><td>Power plan setting → 0 (plugged in)</td></tr>
+<tr><td><b>Network adapter power saving off</b><span>Steadier ping — no link power-down micro-delays</span></td><td><em class='lv lv-med'>MED</em></td><td>Network adapter: Energy-Efficient Ethernet → Disabled</td></tr>
+<tr><td><b>Microsoft Edge background running off</b><span>Frees RAM/CPU — Edge stops running when closed</span></td><td><em class='lv lv-med'>MED</em></td><td>Registry HKLM\…\Edge → StartupBoostEnabled = 0<br>Registry HKLM\…\Edge → BackgroundModeEnabled = 0</td></tr>
+<tr><td><b>Power throttling off</b><span>Small — background apps aren&#x27;t clocked down</span></td><td><em class='lv lv-med'>MED</em></td><td>Registry HKLM\…\PowerThrottling → PowerThrottlingOff = 1</td></tr>
+<tr><td><b>CPU energy preference: performance</b><span>Faster clock ramp on Ryzen CPPC / Intel Speed Shift</span></td><td><em class='lv lv-med'>MED</em></td><td>Power plan setting → 0 (plugged in)</td></tr>
+<tr><td><b>Bing web results in Start search off</b><span>Faster, local-only Start search</span></td><td><em class='lv lv-med'>MED</em></td><td>Registry HKCU\…\Explorer → DisableSearchBoxSuggestions = 1</td></tr>
+<tr><td><b>Copilot button and legacy Copilot off</b><span>Declutter</span></td><td><em class='lv lv-med'>MED</em></td><td>Registry HKCU\…\WindowsCopilot → TurnOffWindowsCopilot = 1<br>Registry HKCU\…\Advanced → ShowCopilotButton = 0</td></tr>
+<tr><td><b>Telemetry to minimum</b><span>Privacy; tiny background CPU/network</span></td><td><em class='lv lv-med'>MED</em></td><td>Registry HKLM\…\DataCollection → AllowTelemetry = 1<br>Service DiagTrack → Manual (never Disabled)<br>Service dmwappushservice → Manual (never Disabled)</td></tr>
+<tr><td><b>Advertising ID &amp; tailored experiences off</b><span>Privacy</span></td><td><em class='lv lv-med'>MED</em></td><td>Registry HKCU\…\AdvertisingInfo → Enabled = 0<br>Registry HKCU\…\Privacy → TailoredExperiencesWithDiagnosticDataEnabled = 0</td></tr>
+<tr><td><b>Activity history off</b><span>Privacy</span></td><td><em class='lv lv-med'>MED</em></td><td>Registry HKLM\…\System → EnableActivityFeed = 0<br>Registry HKLM\…\System → PublishUserActivities = 0<br>Registry HKLM\…\System → UploadUserActivities = 0</td></tr>
+<tr><td><b>Non-essential services to Manual</b><span>Small RAM saving; services still start if something needs them</span></td><td><em class='lv lv-med'>MED</em></td><td>Service MapsBroker → Manual (never Disabled)<br>Service RetailDemo → Manual (never Disabled)<br>Service Fax → Manual (never Disabled)<br>Service TrkWks → Manual (never Disabled)<br>Service WMPNetworkSvc → Manual (never Disabled)</td></tr>
+<tr><td><b>Windows Low Latency Profile</b><span>Snappier response — CPU briefly boosts to max on input / app launch</span></td><td><em class='lv lv-max'>MAX</em></td><td>Windows feature flag 58989092 → enabled</td></tr>
+<tr><td><b>Processor boost mode: Aggressive</b><span>Slightly faster boost response; more heat</span></td><td><em class='lv lv-max'>MAX</em></td><td>Power plan setting → 2 (plugged in)</td></tr>
+<tr><td><b>Multiplane overlay (MPO) off</b><span>Fix for flicker / black screens — not an FPS tweak</span></td><td><em class='lv lv-ultra'>ULTRA</em></td><td>Registry HKLM\…\Dwm → OverlayTestMode = 5</td></tr>
+<tr><td><b>Hardware-accelerated GPU scheduling</b><span>Small FPS / latency; required for DLSS Frame Generation</span></td><td><em class='lv lv-ultra'>ULTRA</em></td><td>Registry HKLM\…\GraphicsDrivers → HwSchMode = 2</td></tr>
+<tr><td><b>Global timer resolution requests</b><span>Disputed — can help frame pacing in some games</span></td><td><em class='lv lv-ultra'>ULTRA</em></td><td>Registry HKLM\…\kernel → GlobalTimerResolutionRequests = 1</td></tr>
+<tr><td><b>Foreground priority separation</b><span>Disputed</span></td><td><em class='lv lv-ultra'>ULTRA</em></td><td>Registry HKLM\…\PriorityControl → Win32PrioritySeparation = 38</td></tr>
+<tr><td><b>GPU message-signaled interrupts (MSI)</b><span>Disputed — most current drivers already use MSI</span></td><td><em class='lv lv-ultra'>ULTRA</em></td><td>Graphics card device key → MSISupported = 1</td></tr>
+<tr><td><b>Network throttling index off</b><span>Disputed — mostly placebo for games</span></td><td><em class='lv lv-ultra'>ULTRA</em></td><td>Registry HKLM\…\SystemProfile → NetworkThrottlingIndex = 0xFFFFFFFF</td></tr>
+<tr><td><b>Nagle&#x27;s algorithm off (TCP)</b><span>No effect on most modern games (they use UDP)</span></td><td><em class='lv lv-ultra'>ULTRA</em></td><td>Each network interface → TcpAckFrequency = 1<br>Each network interface → TCPNoDelay = 1</td></tr>
+<tr><td><b>Network interrupt moderation off</b><span>Lower network latency; slightly more CPU</span></td><td><em class='lv lv-ultra'>ULTRA</em></td><td>Network adapter: Interrupt Moderation → Disabled</td></tr>
+<tr><td><b>Prioritise game traffic (QoS DSCP 46)</b><span>Only helps if your router honours DSCP</span></td><td><em class='lv lv-ultra'>ULTRA</em></td><td>PowerShell: QoS policy for game traffic</td></tr>
+<tr><td><b>MMCSS: prioritise games</b><span>Disputed — benchmark it</span></td><td><em class='lv lv-ultra'>ULTRA</em></td><td>Registry HKLM\…\SystemProfile → SystemResponsiveness = 10<br>Registry HKLM\…\Games → GPU Priority = 8<br>Registry HKLM\…\Games → Priority = 6<br>Registry HKLM\…\Games → Scheduling Category = High</td></tr>
+<tr><td><b>Memory compression off</b><span>Less CPU spent compressing RAM — only sensible with 32 GB+ of RAM</span></td><td><em class='lv lv-ultra'>ULTRA</em></td><td>PowerShell: memory compression off</td></tr>
+<tr><td><b>CPU core parking off (AC)</b><span>Often none on modern desktop CPUs — benchmark it</span></td><td><em class='lv lv-ultra'>ULTRA</em></td><td>Power plan setting → 100 (plugged in)</td></tr>
+<tr><td><b>Minimum processor state 100% (AC)</b><span>Rarely measurable; higher idle temps/power</span></td><td><em class='lv lv-ultra'>ULTRA</em></td><td>Power plan setting → 100 (plugged in)</td></tr>
+<tr><td><b>SysMain (Superfetch) to Manual</b><span>Can reduce disk activity; may slow app launches</span></td><td><em class='lv lv-ultra'>ULTRA</em></td><td>Service SysMain → Manual (never Disabled)</td></tr></tbody>
+    </table></div></div>
+  </section>
+
+  <section class="rv">
+    <div class="bar"></div><h2>Undo <span class="grad">everything</span></h2>
+    <p class="sub">Flip <b style="color:var(--text)">TORQUE tweaks</b> off in the sidebar (or Backups &amp; Restore → Revert everything), then restart. Your PC goes back to exactly how it was. Windows' own System Restore point is there too.</p>
+    <div class="cta"><a class="btn primary" href="downloads/TORQUE-v2.3.zip" download>Download TORQUE</a><button class="btn ghost" data-go="install">How to install →</button></div>
+  </section>
+</div>
+
+<!-- ======================= INSTALL ======================= -->
+<div class="panel" id="p-install">
+  <section>
+    <div class="bar"></div><h2>Install in <span class="grad">one minute</span></h2>
+    <p class="sub">No installer, nothing extra to download.</p>
+    <ol class="steps">
+      <li><b>Download</b> <code>TORQUE-v2.3.zip</code> and <b>extract</b> it (right-click → Extract All).</li>
+      <li>Double-click <b>Torque.exe</b> and click <b>Yes</b> on the admin prompt — it needs admin to change system settings.</li>
+      <li>If you see <b>"Windows protected your PC"</b>: click <b>More info → Run anyway</b>. (<a href="#" data-go="trust" style="color:#ff8a80">Why?</a>)</li>
+      <li>Create a password — or click <b>Continue without a password</b>.</li>
+      <li>Optional but recommended: <b>Benchmark Lab → Before</b> in your game, so you can see the difference.</li>
+      <li>Go to <b>Optimize</b>, pick <b>LOW / MED / MAX</b>, check the preview, click <b>Optimize</b>. Restart when it asks.</li>
+    </ol>
+    <div class="cta" style="margin-top:22px"><a class="btn primary" href="downloads/TORQUE-v2.3.zip" download>Download for Windows</a></div>
+  </section>
+</div>
+
+<!-- ======================= FAQ ======================= -->
+<div class="panel" id="p-faq">
+  <section>
+    <div class="bar"></div><h2><span class="grad">FAQ</span></h2>
+    <details open><summary>How much FPS will I gain?</summary><p>It depends on your PC. The biggest wins are usually Fortnite's Performance mode, RAM running at its rated speed (EXPO/XMP — TORQUE detects this), and your monitor's refresh rate. Windows tweaks mostly mean steadier frames and lower delay rather than a huge average-FPS jump. Use Benchmark Lab to measure your own before/after.</p></details>
+    <details><summary>Can I get banned?</summary><p>TORQUE doesn't inject into games, read game memory or modify game files — it only edits each game's own settings file (like changing settings in the menu) and Windows/driver settings. Anti-cheat services are on its protected list.</p></details>
+    <details><summary>Is it really free?</summary><p>Yes — free while it's in beta. A paid version is planned later. Anything you download now keeps working.</p></details>
+    <details><summary>Does it work on AMD graphics cards?</summary><p>Yes for Windows, game and network tuning. Automatic driver tuning is NVIDIA-only for now.</p></details>
+    <details><summary>How do I undo it?</summary><p>Switch <b>TORQUE tweaks</b> off in the sidebar (or Backups &amp; Restore → Revert everything) and restart.</p></details>
+    <details><summary>It's laggy in a virtual machine / old PC</summary><p>TORQUE switches to Low Performance mode automatically there. You can also pick it in Personalize → Performance.</p></details>
+    <details><summary>Found a bug?</summary><p>Settings → About → Activity log shows everything TORQUE did. Send a screenshot of it along with what happened.</p></details>
+  </section>
+</div>
+
+<footer>TORQUE beta v2.3 · Free during beta · You're changing system settings — every change is backed up and revertible, but use it at your own risk.<br>
+Includes Intel PresentMon (MIT), ViVeTool (GPL-3.0), NvAPIWrapper (LGPL-3.0), Inter &amp; Barlow fonts (OFL), Fluent UI icons (MIT). Licences are included in the download.</footer>
+</div>
+
+<script>
+// tabs
+const panels=[...document.querySelectorAll('.panel')],tabs=[...document.querySelectorAll('.tab')];
+function go(id,push){
+  if(!document.getElementById('p-'+id)) id='overview';
+  panels.forEach(p=>p.classList.toggle('on',p.id==='p-'+id));
+  tabs.forEach(t=>t.classList.toggle('on',t.dataset.go===id));
+  if(push!==false) history.replaceState(null,'','#'+id);
+  window.scrollTo({top:0,behavior:'smooth'}); reveal();
+}
+document.querySelectorAll('[data-go]').forEach(el=>el.addEventListener('click',e=>{e.preventDefault();go(el.dataset.go)}));
+go((location.hash||'#overview').slice(1),false);
+addEventListener('hashchange',()=>go(location.hash.slice(1),false));
+// reveal on scroll
+const io='IntersectionObserver' in window?new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');io.unobserve(e.target)}}),{threshold:.12}):null;
+function reveal(){document.querySelectorAll('.panel.on .rv:not(.vis)').forEach(el=>io?io.observe(el):el.classList.add('vis'))}
+reveal();
+// copy hash
+document.getElementById('copy').onclick=()=>{try{navigator.clipboard.writeText(document.getElementById('sha').textContent);document.getElementById('copy').textContent='Copied ✓'}catch(e){}};
+// embers
+(()=>{const c=document.getElementById('embers');if(!c.getContext||matchMedia('(prefers-reduced-motion: reduce)').matches)return;const x=c.getContext('2d');let W,H,ps=[];
+function rs(){W=c.width=innerWidth;H=c.height=innerHeight}rs();addEventListener('resize',rs);
+for(let i=0;i<46;i++)ps.push({x:Math.random()*innerWidth,y:Math.random()*innerHeight,s:1+Math.random()*2.2,v:.25+Math.random()*.7,o:Math.random()*6.28});
+let last=0;function f(t){requestAnimationFrame(f);if(t-last<33)return;last=t;x.clearRect(0,0,W,H);
+for(const p of ps){p.y-=p.v;p.x+=Math.sin((t/1000)+p.o)*.35;if(p.y<-10){p.y=H+10;p.x=Math.random()*W}
+const g=x.createRadialGradient(p.x,p.y,0,p.x,p.y,p.s*5);g.addColorStop(0,'rgba(255,210,190,.9)');g.addColorStop(.3,'rgba(255,60,40,.45)');g.addColorStop(1,'rgba(255,40,40,0)');
+x.fillStyle=g;x.beginPath();x.arc(p.x,p.y,p.s*5,0,6.283);x.fill()}}requestAnimationFrame(f)})();
+</script>
 </body>
 </html>
