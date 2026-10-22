@@ -232,3 +232,33 @@ details .answer p:last-child{margin:0}
 /* prevent long code/hashes from widening grid and list children */
 .steps>li,.card,.grid>*{min-width:0}
 .hashrow code{flex:1 1 240px;min-width:0;overflow-wrap:anywhere}
+
+/* beta announcement bar */
+.announce{position:relative;background:var(--accent-soft);border-bottom:1px solid var(--border);color:var(--text);font-size:14px;text-align:center;padding:10px 44px}
+.announce a{color:#ff9d9d;font-weight:600}
+.announce .close{position:absolute;right:10px;top:50%;transform:translateY(-50%);background:none;border:0;color:var(--muted);width:28px;height:28px;border-radius:7px;cursor:pointer;font-size:18px;line-height:1}
+.announce .close:hover{background:rgba(255,255,255,.08);color:var(--text)}
+
+/* discord join modal */
+.discord-overlay{position:fixed;inset:0;z-index:200;background:rgba(5,5,6,.72);display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;pointer-events:none;transition:opacity .25s ease}
+.discord-overlay.show{opacity:1;pointer-events:auto}
+.discord-modal{background:var(--surface);border:1px solid var(--border-strong);border-radius:16px;max-width:420px;width:100%;padding:32px;position:relative;box-shadow:0 30px 80px rgba(0,0,0,.55);transform:translateY(12px);transition:transform .25s ease}
+.discord-overlay.show .discord-modal{transform:none}
+.discord-modal .close{position:absolute;top:14px;right:14px;background:none;border:0;color:var(--muted);cursor:pointer;width:32px;height:32px;border-radius:8px;display:grid;place-items:center;font-size:18px}
+.discord-modal .close:hover{background:var(--surface-2);color:var(--text)}
+.discord-modal .mark{width:52px;height:52px;border-radius:14px;background:#5865f2;display:grid;place-items:center;margin-bottom:18px}
+.discord-modal .mark svg{width:26px;height:26px;stroke:#fff;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.discord-modal h3{font-size:20px;margin-bottom:8px}
+.discord-modal p{color:var(--muted);font-size:14.5px;margin:0 0 22px}
+.discord-modal .actions{display:flex;gap:10px;flex-wrap:wrap}
+
+/* floating discord widget */
+.discord-widget{position:fixed;right:20px;bottom:20px;z-index:150;display:flex;align-items:center;gap:9px;background:#5865f2;color:#fff;border:0;border-radius:999px;padding:13px 18px 13px 14px;font:600 14px/1 var(--font);cursor:pointer;box-shadow:0 10px 30px rgba(0,0,0,.4);transform:translateY(90px) scale(.85);opacity:0;transition:transform .35s ease,opacity .35s ease,background .15s;visibility:hidden}
+.discord-widget.show{transform:none;opacity:1;visibility:visible}
+.discord-widget:hover{background:#6b77f4}
+.discord-widget svg{width:19px;height:19px;stroke:#fff;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+@media (max-width:640px){
+  .discord-widget span{display:none}
+  .discord-widget{padding:14px;border-radius:50%}
+  .announce{font-size:13px;padding:10px 40px}
+}
