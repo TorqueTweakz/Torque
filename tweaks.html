@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tweak Reference — TORQUE</title>
+<meta name="description" content="The complete list of the 44 Windows, driver and network tweaks TORQUE can apply, with the optimization level and the exact settings each one changes.">
+<meta name="theme-color" content="#0b0c0e">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Tweak Reference — TORQUE">
+<meta property="og:description" content="The complete list of the 44 Windows, driver and network tweaks TORQUE can apply, with the optimization level and the exact settings each one changes.">
+<meta property="og:image" content="img/02-optimize.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header"><div class="wrap">
+  <a class="brand" href="index.html" aria-label="TORQUE home"><img src="img/logo.png" alt="" width="30" height="30">TORQUE</a>
+  <nav class="nav" id="nav" aria-label="Main"><a href="index.html">Home</a><a href="features.html">Features</a><a href="security.html">Security</a><a href="download.html">Download</a><a href="faq.html">FAQ</a><a href="community.html">Community</a></nav>
+  <div class="header-cta"><a class="btn btn-primary btn-sm" href="download.html">Download</a></div>
+  <button class="menu-btn" aria-label="Menu" aria-expanded="false" aria-controls="nav"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+</div></header>
+<main id="main">
+<section class="page-head"><div class="wrap">
+  <span class="eyebrow">Tweak reference</span>
+  <h1>Every change TORQUE can make</h1>
+  <p class="lead">This is the complete catalogue of system tweaks, grouped by the optimization level that includes them. In addition, the Optimize screen can set your maximum refresh rate, NVIDIA driver profile, game configurations, debloat, startup apps and DNS; these are backed up in the same way.</p>
+</div></section>
+<section class="section"><div class="wrap">
+  <div class="filters" role="group" aria-label="Filter by level">
+    <button class="chip" type="button" data-filter="all" aria-pressed="true">All</button>
+    <button class="chip" type="button" data-filter="low" aria-pressed="false">LOW</button>
+    <button class="chip" type="button" data-filter="med" aria-pressed="false">MED</button>
+    <button class="chip" type="button" data-filter="max" aria-pressed="false">MAX</button>
+    <button class="chip" type="button" data-filter="ultra" aria-pressed="false">ULTRA</button>
+  </div>
+  <div class="tbl-wrap"><table class="tbl">
+    <thead><tr><th scope="col">Tweak</th><th scope="col">Level</th><th scope="col">What it changes</th></tr></thead>
+    <tbody id="tweak-rows"><tr data-level="low"><td><b>Game Mode on</b><small>Small — fewer background interruptions</small></td><td><span class="badge low">LOW</span></td><td>Registry HKCU\…\GameBar → AutoGameModeEnabled = 1<br>Registry HKCU\…\GameBar → AllowAutoGameMode = 1</td></tr>
+<tr data-level="low"><td><b>Xbox Game Bar background recording off</b><small>Small FPS, frees the GPU video encoder</small></td><td><span class="badge low">LOW</span></td><td>Registry HKCU\…\GameConfigStore → GameDVR_Enabled = 0<br>Registry HKCU\…\GameDVR → AppCaptureEnabled = 0<br>Registry HKCU\…\GameDVR → HistoricalCaptureEnabled = 0</td></tr>
+<tr data-level="low"><td><b>Game Bar controller button off</b><small>Quality of life</small></td><td><span class="badge low">LOW</span></td><td>Registry HKCU\…\GameBar → UseNexusForGameBarEnabled = 0</td></tr>
+<tr data-level="low"><td><b>No forced update restarts while signed in</b><small>Quality of life</small></td><td><span class="badge low">LOW</span></td><td>Registry HKLM\…\AU → NoAutoRebootWithLoggedOnUsers = 1</td></tr>
+<tr data-level="low"><td><b>Sticky/Filter/Toggle key pop-ups off</b><small>Quality of life</small></td><td><span class="badge low">LOW</span></td><td>Registry HKCU\…\StickyKeys → Flags = 506<br>Registry HKCU\…\Keyboard Response → Flags = 122<br>Registry HKCU\…\ToggleKeys → Flags = 58</td></tr>
+<tr data-level="low"><td><b>Optimizations for windowed games</b><small>Lower input latency in borderless/windowed DX10/11 games</small></td><td><span class="badge low">LOW</span></td><td>Windows graphics setting SwapEffectUpgradeEnable → 1</td></tr>
+<tr data-level="low"><td><b>Variable refresh rate for all games</b><small>Smoother frame pacing on G-SYNC / FreeSync monitors</small></td><td><span class="badge low">LOW</span></td><td>Windows graphics setting VRROptimizeEnable → 1</td></tr>
+<tr data-level="low"><td><b>Fastest keyboard repeat</b><small>Shorter key-repeat delay (typing / chat / menus)</small></td><td><span class="badge low">LOW</span></td><td>Registry HKCU\…\Keyboard → KeyboardDelay = 0<br>Registry HKCU\…\Keyboard → KeyboardSpeed = 31</td></tr>
+<tr data-level="low"><td><b>Stop uploading updates to other PCs</b><small>Frees upload bandwidth</small></td><td><span class="badge low">LOW</span></td><td>Registry HKLM\…\DeliveryOptimization → DODownloadMode = 0</td></tr>
+<tr data-level="low"><td><b>Store apps can&#x27;t run in background</b><small>Small — less background CPU/RAM</small></td><td><span class="badge low">LOW</span></td><td>Registry HKCU\…\BackgroundAccessApplications → GlobalUserDisabled = 1</td></tr>
+<tr data-level="low"><td><b>Performance power plan</b><small>Small — faster clock ramp-up; more idle power</small></td><td><span class="badge low">LOW</span></td><td>Active power plan → High/Ultimate Performance</td></tr>
+<tr data-level="low"><td><b>Snappier desktop animations</b><small>Desktop feels faster; no in-game FPS change</small></td><td><span class="badge low">LOW</span></td><td>Registry HKCU\…\Desktop → MenuShowDelay = 0<br>Registry HKCU\…\WindowMetrics → MinAnimate = 0<br>Registry HKCU\…\Advanced → TaskbarAnimations = 0</td></tr>
+<tr data-level="low"><td><b>Transparency effects off</b><small>Tiny — helps low-end GPUs only</small></td><td><span class="badge low">LOW</span></td><td>Registry HKCU\…\Personalize → EnableTransparency = 0</td></tr>
+<tr data-level="med"><td><b>Widgets off</b><small>Frees ~100–300 MB RAM and background web traffic</small></td><td><span class="badge med">MED</span></td><td>Registry HKLM\…\Dsh → AllowNewsAndInterests = 0</td></tr>
+<tr data-level="med"><td><b>No suggested apps / auto-installed promos</b><small>Stops Windows silently installing promo apps</small></td><td><span class="badge med">MED</span></td><td>Registry HKCU\…\ContentDeliveryManager → SilentInstalledAppsEnabled = 0<br>Registry HKCU\…\ContentDeliveryManager → SystemPaneSuggestionsEnabled = 0<br>Registry HKCU\…\ContentDeliveryManager → SoftLandingEnabled = 0<br>Registry HKCU\…\ContentDeliveryManager → SubscribedContent-338388Enabled = 0<br>Registry HKCU\…\ContentDeliveryManager → SubscribedContent-338389Enabled = 0<br>Registry HKCU\…\ContentDeliveryManager → SubscribedContent-353694Enabled = 0<br>Registry HKCU\…\ContentDeliveryManager → SubscribedContent-353696Enabled = 0</td></tr>
+<tr data-level="med"><td><b>Mouse acceleration off</b><small>Consistent aim (1:1 mouse movement)</small></td><td><span class="badge med">MED</span></td><td>Registry HKCU\…\Mouse → MouseSpeed = 0<br>Registry HKCU\…\Mouse → MouseThreshold1 = 0<br>Registry HKCU\…\Mouse → MouseThreshold2 = 0</td></tr>
+<tr data-level="med"><td><b>USB selective suspend off</b><small>Stops mouse/keyboard/headset wake-up lag and dropouts</small></td><td><span class="badge med">MED</span></td><td>Power plan setting → 0 (plugged in)</td></tr>
+<tr data-level="med"><td><b>PCI Express link power saving off</b><small>Removes GPU/NVMe link wake-up latency</small></td><td><span class="badge med">MED</span></td><td>Power plan setting → 0 (plugged in)</td></tr>
+<tr data-level="med"><td><b>Network adapter power saving off</b><small>Steadier ping — no link power-down micro-delays</small></td><td><span class="badge med">MED</span></td><td>Network adapter: Energy-Efficient Ethernet → Disabled</td></tr>
+<tr data-level="med"><td><b>Microsoft Edge background running off</b><small>Frees RAM/CPU — Edge stops running when closed</small></td><td><span class="badge med">MED</span></td><td>Registry HKLM\…\Edge → StartupBoostEnabled = 0<br>Registry HKLM\…\Edge → BackgroundModeEnabled = 0</td></tr>
+<tr data-level="med"><td><b>Power throttling off</b><small>Small — background apps aren&#x27;t clocked down</small></td><td><span class="badge med">MED</span></td><td>Registry HKLM\…\PowerThrottling → PowerThrottlingOff = 1</td></tr>
+<tr data-level="med"><td><b>CPU energy preference: performance</b><small>Faster clock ramp on Ryzen CPPC / Intel Speed Shift</small></td><td><span class="badge med">MED</span></td><td>Power plan setting → 0 (plugged in)</td></tr>
+<tr data-level="med"><td><b>Bing web results in Start search off</b><small>Faster, local-only Start search</small></td><td><span class="badge med">MED</span></td><td>Registry HKCU\…\Explorer → DisableSearchBoxSuggestions = 1</td></tr>
+<tr data-level="med"><td><b>Copilot button and legacy Copilot off</b><small>Declutter</small></td><td><span class="badge med">MED</span></td><td>Registry HKCU\…\WindowsCopilot → TurnOffWindowsCopilot = 1<br>Registry HKCU\…\Advanced → ShowCopilotButton = 0</td></tr>
+<tr data-level="med"><td><b>Telemetry to minimum</b><small>Privacy; tiny background CPU/network</small></td><td><span class="badge med">MED</span></td><td>Registry HKLM\…\DataCollection → AllowTelemetry = 1<br>Service DiagTrack → Manual (never Disabled)<br>Service dmwappushservice → Manual (never Disabled)</td></tr>
+<tr data-level="med"><td><b>Advertising ID &amp; tailored experiences off</b><small>Privacy</small></td><td><span class="badge med">MED</span></td><td>Registry HKCU\…\AdvertisingInfo → Enabled = 0<br>Registry HKCU\…\Privacy → TailoredExperiencesWithDiagnosticDataEnabled = 0</td></tr>
+<tr data-level="med"><td><b>Activity history off</b><small>Privacy</small></td><td><span class="badge med">MED</span></td><td>Registry HKLM\…\System → EnableActivityFeed = 0<br>Registry HKLM\…\System → PublishUserActivities = 0<br>Registry HKLM\…\System → UploadUserActivities = 0</td></tr>
+<tr data-level="med"><td><b>Non-essential services to Manual</b><small>Small RAM saving; services still start if something needs them</small></td><td><span class="badge med">MED</span></td><td>Service MapsBroker → Manual (never Disabled)<br>Service RetailDemo → Manual (never Disabled)<br>Service Fax → Manual (never Disabled)<br>Service TrkWks → Manual (never Disabled)<br>Service WMPNetworkSvc → Manual (never Disabled)</td></tr>
+<tr data-level="max"><td><b>Windows Low Latency Profile</b><small>Snappier response — CPU briefly boosts to max on input / app launch</small></td><td><span class="badge max">MAX</span></td><td>Windows feature flag 58989092 → enabled</td></tr>
+<tr data-level="max"><td><b>Processor boost mode: Aggressive</b><small>Slightly faster boost response; more heat</small></td><td><span class="badge max">MAX</span></td><td>Power plan setting → 2 (plugged in)</td></tr>
+<tr data-level="ultra"><td><b>Multiplane overlay (MPO) off</b><small>Fix for flicker / black screens — not an FPS tweak</small></td><td><span class="badge ultra">ULTRA</span></td><td>Registry HKLM\…\Dwm → OverlayTestMode = 5</td></tr>
+<tr data-level="ultra"><td><b>Hardware-accelerated GPU scheduling</b><small>Small FPS / latency; required for DLSS Frame Generation</small></td><td><span class="badge ultra">ULTRA</span></td><td>Registry HKLM\…\GraphicsDrivers → HwSchMode = 2</td></tr>
+<tr data-level="ultra"><td><b>Global timer resolution requests</b><small>Disputed — can help frame pacing in some games</small></td><td><span class="badge ultra">ULTRA</span></td><td>Registry HKLM\…\kernel → GlobalTimerResolutionRequests = 1</td></tr>
+<tr data-level="ultra"><td><b>Foreground priority separation</b><small>Disputed</small></td><td><span class="badge ultra">ULTRA</span></td><td>Registry HKLM\…\PriorityControl → Win32PrioritySeparation = 38</td></tr>
+<tr data-level="ultra"><td><b>GPU message-signaled interrupts (MSI)</b><small>Disputed — most current drivers already use MSI</small></td><td><span class="badge ultra">ULTRA</span></td><td>Graphics card device key → MSISupported = 1</td></tr>
+<tr data-level="ultra"><td><b>Network throttling index off</b><small>Disputed — mostly placebo for games</small></td><td><span class="badge ultra">ULTRA</span></td><td>Registry HKLM\…\SystemProfile → NetworkThrottlingIndex = 0xFFFFFFFF</td></tr>
+<tr data-level="ultra"><td><b>Nagle&#x27;s algorithm off (TCP)</b><small>No effect on most modern games (they use UDP)</small></td><td><span class="badge ultra">ULTRA</span></td><td>Each network interface → TcpAckFrequency = 1<br>Each network interface → TCPNoDelay = 1</td></tr>
+<tr data-level="ultra"><td><b>Network interrupt moderation off</b><small>Lower network latency; slightly more CPU</small></td><td><span class="badge ultra">ULTRA</span></td><td>Network adapter: Interrupt Moderation → Disabled</td></tr>
+<tr data-level="ultra"><td><b>Prioritise game traffic (QoS DSCP 46)</b><small>Only helps if your router honours DSCP</small></td><td><span class="badge ultra">ULTRA</span></td><td>PowerShell: QoS policy for game traffic</td></tr>
+<tr data-level="ultra"><td><b>MMCSS: prioritise games</b><small>Disputed — benchmark it</small></td><td><span class="badge ultra">ULTRA</span></td><td>Registry HKLM\…\SystemProfile → SystemResponsiveness = 10<br>Registry HKLM\…\Games → GPU Priority = 8<br>Registry HKLM\…\Games → Priority = 6<br>Registry HKLM\…\Games → Scheduling Category = High</td></tr>
+<tr data-level="ultra"><td><b>Memory compression off</b><small>Less CPU spent compressing RAM — only sensible with 32 GB+ of RAM</small></td><td><span class="badge ultra">ULTRA</span></td><td>PowerShell: memory compression off</td></tr>
+<tr data-level="ultra"><td><b>CPU core parking off (AC)</b><small>Often none on modern desktop CPUs — benchmark it</small></td><td><span class="badge ultra">ULTRA</span></td><td>Power plan setting → 100 (plugged in)</td></tr>
+<tr data-level="ultra"><td><b>Minimum processor state 100% (AC)</b><small>Rarely measurable; higher idle temps/power</small></td><td><span class="badge ultra">ULTRA</span></td><td>Power plan setting → 100 (plugged in)</td></tr>
+<tr data-level="ultra"><td><b>SysMain (Superfetch) to Manual</b><small>Can reduce disk activity; may slow app launches</small></td><td><span class="badge ultra">ULTRA</span></td><td>Service SysMain → Manual (never Disabled)</td></tr></tbody>
+  </table></div>
+  <p class="count" id="tweak-count"></p>
+  <div class="callout info" style="margin-top:24px"><p><strong>How to read this table.</strong> Entries marked "Disputed" or "Experimental" have limited or inconsistent evidence of benefit and are only applied at the ULTRA level. Services are only ever set to Manual, never Disabled. Paths are shortened with an ellipsis (…) for readability.</p></div>
+</div></section>
+<section class="section"><div class="wrap"><div class="cta-band reveal">
+  <div><h2>Ready to try TORQUE?</h2><p>Free during the public beta. No account required, and every change can be reverted.</p></div>
+  <div class="cta-actions"><a class="btn btn-primary" href="download.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0-5-5m5 5 5-5M4 19h16"/></svg>Download for Windows</a><a class="btn btn-secondary" href="security.html">Review the security details</a></div>
+</div></div></section>
+
+</main>
+<footer class="site-footer"><div class="wrap">
+  <div class="footer-grid">
+    <div class="footer-about"><a class="brand" href="index.html"><img src="img/logo.png" alt="" width="30" height="30">TORQUE</a>
+      <p>A transparent, reversible performance suite for Windows gaming PCs. Currently in free public beta.</p></div>
+    <div><h4>Product</h4><ul><li><a href="features.html">Features</a></li><li><a href="tweaks.html">Tweak reference</a></li><li><a href="changelog.html">Changelog</a></li><li><a href="download.html">Download</a></li></ul></div>
+    <div><h4>Resources</h4><ul><li><a href="security.html">Security &amp; transparency</a></li><li><a href="faq.html">FAQ</a></li><li><a href="download.html#install">Installation guide</a></li><li><a href="privacy.html">Privacy &amp; terms</a></li></ul></div>
+    <div><h4>Community</h4><ul><li><a href="community.html" data-discord>Discord server</a></li><li><a href="community.html#support">Get support</a></li><li><a href="community.html#feedback">Share feedback</a></li></ul></div>
+  </div>
+  <div class="legal">
+    <p>TORQUE beta v2.3. Not affiliated with or endorsed by Microsoft, NVIDIA, Epic Games or any game publisher; all trademarks belong to their owners. TORQUE changes system settings: every change is backed up and can be reverted, but you use it at your own risk.</p>
+    <p>Includes Intel PresentMon (MIT), ViVeTool (GPL-3.0), NvAPIWrapper (LGPL-3.0), Inter and Barlow fonts (OFL) and Fluent UI icons (MIT). Licences are included in the download.</p>
+  </div>
+</div></footer>
+<script src="assets/site.js"></script>
+</body>
+</html>

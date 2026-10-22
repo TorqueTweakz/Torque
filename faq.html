@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Frequently Asked Questions — TORQUE</title>
+<meta name="description" content="Answers about TORQUE: cost, supported systems, expected performance gains, safety, SmartScreen warnings, anti-cheat and support.">
+<meta name="theme-color" content="#0b0c0e">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Frequently Asked Questions — TORQUE">
+<meta property="og:description" content="Answers about TORQUE: cost, supported systems, expected performance gains, safety, SmartScreen warnings, anti-cheat and support.">
+<meta property="og:image" content="img/02-optimize.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header"><div class="wrap">
+  <a class="brand" href="index.html" aria-label="TORQUE home"><img src="img/logo.png" alt="" width="30" height="30">TORQUE</a>
+  <nav class="nav" id="nav" aria-label="Main"><a href="index.html">Home</a><a href="features.html">Features</a><a href="security.html">Security</a><a href="download.html">Download</a><a href="faq.html" aria-current="page">FAQ</a><a href="community.html">Community</a></nav>
+  <div class="header-cta"><a class="btn btn-primary btn-sm" href="download.html">Download</a></div>
+  <button class="menu-btn" aria-label="Menu" aria-expanded="false" aria-controls="nav"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+</div></header>
+<main id="main">
+<section class="page-head"><div class="wrap">
+  <span class="eyebrow">FAQ</span>
+  <h1>Frequently asked questions</h1>
+  <p class="lead">Answers to common questions about performance, safety and support. If you cannot find what you need, ask in the community.</p>
+</div></section>
+<section class="section"><div class="wrap"><div class="prose" style="max-width:820px">
+<h2 class="faq-group">General</h2>
+<details open><summary>Is TORQUE free?</summary><div class="answer"><p>Yes. TORQUE is free during the public beta. A paid version is planned for the future, and versions you download now will continue to work.</p></div></details>
+<details><summary>Which systems are supported?</summary><div class="answer"><p>Windows 10 and 11 (64-bit). Automatic driver tuning is NVIDIA-only for now; on AMD graphics cards, Windows, game and network tuning are fully available.</p></div></details>
+<details><summary>Do I need an account?</summary><div class="answer"><p>No. There is no account system and no sign-in. You can optionally set a startup password on the machine.</p></div></details>
+<h2 class="faq-group">Performance</h2>
+<details><summary>How much FPS will I gain?</summary><div class="answer"><p>It depends on your hardware and game. The largest improvements usually come from the Health Check items (monitor refresh rate, RAM running at its rated EXPO/XMP speed, Resizable BAR) and from Fortnite's Performance rendering mode. Windows tweaks mostly improve consistency, meaning steadier frame times and fewer background interruptions, rather than a large jump in average FPS. Benchmark Lab lets you measure the difference on your own PC.</p></div></details>
+<details><summary>Why do some tweaks say Experimental or Disputed?</summary><div class="answer"><p>We rate each tweak by the strength of the evidence behind it. Tweaks with mixed evidence are not applied by default and are only included at the ULTRA level. Benchmark them and revert any that do not help.</p></div></details>
+<details><summary>Does TORQUE work in a virtual machine or on an older PC?</summary><div class="answer"><p>Yes. TORQUE automatically switches to Low Performance mode in virtual machines, remote desktops and on PCs without full GPU rendering. You can also select it manually under Personalize → Performance.</p></div></details>
+<h2 class="faq-group">Safety</h2>
+<details><summary>Is it safe? Why does Windows warn me?</summary><div class="answer"><p>The beta is not yet code-signed, so Windows SmartScreen reports it as an unrecognized app, and some antivirus products use heuristic rules against unsigned tools that request administrator access. We recommend that you <a href='security.html#verify'>verify the checksum and scan the file</a> before running it. Details are on the <a href='security.html'>Security page</a>.</p></div></details>
+<details><summary>Can it damage my system?</summary><div class="answer"><p>TORQUE only changes documented settings, previews each change, creates a restore point and backs up original values. Failed changes roll back automatically, and you can revert everything at any time. As with any tool that changes system settings, you should still use it with care, particularly at the ULTRA level.</p></div></details>
+<details><summary>Can I get banned in online games?</summary><div class="answer"><p>TORQUE does not inject into games, read game memory or modify game binaries; it only edits each game's own settings file and Windows/driver settings. Anti-cheat services are on its protected list. That said, anti-cheat rules are set by each publisher and can change, so we cannot offer a guarantee. Use it at your own discretion.</p></div></details>
+<details><summary>How do I undo everything?</summary><div class="answer"><p>Switch <b>TORQUE tweaks</b> off in the sidebar, or choose Backups &amp; Restore → Revert everything, then restart.</p></div></details>
+<details><summary>What data does TORQUE collect?</summary><div class="answer"><p>None. There is no telemetry. The only network use is the optional DNS benchmark and ping test. See the <a href='privacy.html'>Privacy page</a>.</p></div></details>
+<h2 class="faq-group">Support</h2>
+<details><summary>I found a bug. What should I send?</summary><div class="answer"><p>Open Settings → About → Activity log and export it, then share it with a short description and a screenshot in the <a href='community.html#support'>support channel</a>.</p></div></details>
+<details><summary>Where can I ask questions or suggest features?</summary><div class="answer"><p>Join the <a href='community.html' data-discord>Discord server</a>. Feature requests are discussed there openly.</p></div></details>
+</div></div></section>
+<section class="section"><div class="wrap"><div class="cta-band reveal">
+  <div><h2>Join the community</h2><p>Get help, share your setups and benchmark results, and follow development directly with the people building TORQUE.</p></div>
+  <div class="cta-actions"><a class="btn btn-discord" href="community.html" data-discord><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg>Join our Discord</a></div>
+</div></div></section>
+
+</main>
+<footer class="site-footer"><div class="wrap">
+  <div class="footer-grid">
+    <div class="footer-about"><a class="brand" href="index.html"><img src="img/logo.png" alt="" width="30" height="30">TORQUE</a>
+      <p>A transparent, reversible performance suite for Windows gaming PCs. Currently in free public beta.</p></div>
+    <div><h4>Product</h4><ul><li><a href="features.html">Features</a></li><li><a href="tweaks.html">Tweak reference</a></li><li><a href="changelog.html">Changelog</a></li><li><a href="download.html">Download</a></li></ul></div>
+    <div><h4>Resources</h4><ul><li><a href="security.html">Security &amp; transparency</a></li><li><a href="faq.html">FAQ</a></li><li><a href="download.html#install">Installation guide</a></li><li><a href="privacy.html">Privacy &amp; terms</a></li></ul></div>
+    <div><h4>Community</h4><ul><li><a href="community.html" data-discord>Discord server</a></li><li><a href="community.html#support">Get support</a></li><li><a href="community.html#feedback">Share feedback</a></li></ul></div>
+  </div>
+  <div class="legal">
+    <p>TORQUE beta v2.3. Not affiliated with or endorsed by Microsoft, NVIDIA, Epic Games or any game publisher; all trademarks belong to their owners. TORQUE changes system settings: every change is backed up and can be reverted, but you use it at your own risk.</p>
+    <p>Includes Intel PresentMon (MIT), ViVeTool (GPL-3.0), NvAPIWrapper (LGPL-3.0), Inter and Barlow fonts (OFL) and Fluent UI icons (MIT). Licences are included in the download.</p>
+  </div>
+</div></footer>
+<script src="assets/site.js"></script>
+</body>
+</html>

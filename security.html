@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Security & Transparency — TORQUE</title>
+<meta name="description" content="How TORQUE works, exactly what it changes, and how to verify the download yourself: SHA-256 checksum, VirusTotal scan, Windows Sandbox and a full tweak list.">
+<meta name="theme-color" content="#0b0c0e">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Security &amp; Transparency — TORQUE">
+<meta property="og:description" content="How TORQUE works, exactly what it changes, and how to verify the download yourself: SHA-256 checksum, VirusTotal scan, Windows Sandbox and a full tweak list.">
+<meta property="og:image" content="img/02-optimize.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header"><div class="wrap">
+  <a class="brand" href="index.html" aria-label="TORQUE home"><img src="img/logo.png" alt="" width="30" height="30">TORQUE</a>
+  <nav class="nav" id="nav" aria-label="Main"><a href="index.html">Home</a><a href="features.html">Features</a><a href="security.html" aria-current="page">Security</a><a href="download.html">Download</a><a href="faq.html">FAQ</a><a href="community.html">Community</a></nav>
+  <div class="header-cta"><a class="btn btn-primary btn-sm" href="download.html">Download</a></div>
+  <button class="menu-btn" aria-label="Menu" aria-expanded="false" aria-controls="nav"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+</div></header>
+<main id="main">
+<section class="page-head"><div class="wrap">
+  <span class="eyebrow">Security &amp; transparency</span>
+  <h1>Verify TORQUE before you run it</h1>
+  <p class="lead">TORQUE requires administrator rights and changes system settings, so you should not take our word for what it does. This page explains how it behaves and how to check the download independently.</p>
+</div></section>
+<section class="section"><div class="wrap">
+  <div class="section-head reveal"><span class="eyebrow">Summary</span><h2>What you should know first</h2></div>
+  <div class="grid g3">
+    <div class="card reveal"><div class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></div><h3>Changes are visible</h3><p>TORQUE modifies documented registry values, power-plan settings, services (set to Manual, never Disabled), driver profiles and games' own settings files. Each change is previewed before it is applied.</p></div>
+    <div class="card reveal"><div class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg></div><h3>Changes are reversible</h3><p>A System Restore point is offered first, original values are backed up, and failed changes roll back automatically.</p></div>
+    <div class="card reveal"><div class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 4 6v6c0 4.5 3.2 8 8 9 4.8-1 8-4.5 8-9V6l-8-3z"/><path d="m9 12 2 2 4-4"/></svg></div><h3>The build is unsigned</h3><p>The beta is not yet code-signed, so Windows SmartScreen and some antivirus products will warn about it. We explain this below rather than hide it.</p></div>
+  </div>
+</div></section>
+
+<section class="section alt" id="verify"><div class="wrap">
+  <div class="section-head reveal"><span class="eyebrow">Verification</span><h2>Check the download yourself</h2><p>We recommend completing at least the first two steps before running TORQUE for the first time.</p></div>
+  <ol class="steps reveal">
+    <li><strong>Verify the checksum.</strong> Confirm that the file you downloaded is identical to the file published here. In PowerShell:
+      <pre><code>Get-FileHash .\TORQUE-v2.3.zip -Algorithm SHA256</code></pre>
+      or in Command Prompt:
+      <pre><code>certutil -hashfile TORQUE-v2.3.zip SHA256</code></pre>
+      The result must match this value exactly:
+      <div class="hashrow" style="margin-top:12px"><code id="sha">fbc66840afe4d8cbeeaf497493464eee2e8a04949b43feb3770c830b5ca15468</code><button class="btn btn-secondary btn-sm" data-copy="#sha" type="button">Copy</button></div></li>
+    <li><strong>Scan it with multiple engines.</strong> Upload the zip to <a href="https://www.virustotal.com" target="_blank" rel="noopener">VirusTotal</a>, or <a href="https://www.virustotal.com/gui/file/fbc66840afe4d8cbeeaf497493464eee2e8a04949b43feb3770c830b5ca15468" target="_blank" rel="noopener">look up this file's hash</a> to see whether it has already been analyzed. Because the application is unsigned and edits system settings, a small number of generic or heuristic detections is possible; see "Warnings you may see" below.</li>
+    <li><strong>Test in isolation (optional).</strong> If you want additional assurance, run TORQUE inside <a href="https://learn.microsoft.com/windows/security/application-security/application-isolation/windows-sandbox/" target="_blank" rel="noopener">Windows Sandbox</a> or a virtual machine first. TORQUE detects virtual machines and switches to Low Performance mode automatically.</li>
+    <li><strong>Review before you apply.</strong> Nothing is changed until you click Apply, and the preview lists every setting. The complete catalogue is also published in the <a href="tweaks.html">Tweak reference</a>.</li>
+  </ol>
+</div></section>
+
+<section class="section"><div class="wrap">
+  <div class="section-head reveal"><span class="eyebrow">Behavior</span><h2>What TORQUE does and does not do</h2></div>
+  <div class="grid g2">
+    <div class="card reveal"><h3>What TORQUE does</h3><ul class="checks" style="margin-top:16px">
+      <li>Changes <b>documented settings</b> only: registry values, power plans, services, driver profiles and game settings files</li>
+      <li><b>Previews</b> every change with its old and new value</li>
+      <li>Offers a <b>System Restore point</b> before applying</li>
+      <li><b>Backs up</b> original values once, before the first change, so a revert always returns to your real original state</li>
+      <li>Records every action in the <b>Activity Log</b>, which can be exported</li>
+      <li>Verifies bundled third-party tools (PresentMon, ViVeTool) against known checksums before use</li>
+    </ul></div>
+    <div class="card reveal"><h3>What TORQUE does not do</h3><ul class="checks no" style="margin-top:16px">
+      <li>Does not disable <b>Windows Defender, SmartScreen, UAC, Windows Update</b> or CPU security mitigations; these are blocked in code</li>
+      <li>Does not <b>inject into games</b>, read game memory or modify game binaries</li>
+      <li>Does not use registry "cleaners" or mass-disable services</li>
+      <li>Does not require an <b>account</b> and does not collect <b>telemetry</b></li>
+      <li>Does not modify anti-cheat, audio, NVIDIA, Logitech or game-server software; these are on a protected exclusion list</li>
+    </ul></div>
+  </div>
+  <div class="callout info reveal" style="margin-top:16px"><p><strong>A note on anti-cheat.</strong> TORQUE does not interact with game processes. It edits each game's own configuration file, as you could by hand in the game's menu. However, anti-cheat policies are set by each publisher and can change, and no third-party tool can guarantee compliance. Use TORQUE at your own discretion.</p></div>
+</div></section>
+
+<section class="section alt" id="warnings"><div class="wrap">
+  <div class="section-head reveal"><span class="eyebrow">Warnings you may see</span><h2>Windows SmartScreen and antivirus alerts</h2><p>The TORQUE beta is not yet signed with a code-signing certificate. Certificates are a recurring cost, and SmartScreen additionally builds a reputation for each publisher over time. As a result, new applications from independent developers commonly trigger the following warning.</p></div>
+  <div class="grid g2" style="align-items:start">
+    <div class="reveal">
+      <ol class="steps">
+        <li>When Windows shows <b>"Windows protected your PC"</b>, select <b>More info</b>.</li>
+        <li>Confirm that the publisher and file name are what you expect, then select <b>Run anyway</b>.</li>
+      </ol>
+      <p class="muted" style="margin-top:16px;font-size:14.5px">A warning from SmartScreen means the file is unrecognized, not that it has been identified as malicious. If you are not comfortable proceeding, do not run the file; ask questions in our <a href="community.html" data-discord>Discord server</a> first.</p>
+    </div>
+    <div class="callout reveal"><p><strong>Antivirus detections.</strong> Some security products flag unsigned tools that request administrator access and edit system settings, using generic or heuristic rules. If you see a detection, check the specific name reported and the number of engines involved on VirusTotal, and feel free to send us the report. A signed build is planned for the paid release.</p></div>
+  </div>
+</div></section>
+
+<section class="section"><div class="wrap">
+  <div class="grid g2">
+    <div class="reveal"><span class="eyebrow">Data &amp; network</span><h2>What leaves your PC</h2>
+      <p class="muted" style="margin-top:14px">TORQUE has no account system and no telemetry. Its only network activity is the optional DNS benchmark and ping test, plus links you choose to open. Configuration, backups, the activity log and benchmark results are stored locally in <code>%ProgramData%\Torque\</code>.</p>
+      <p class="muted">The optional startup password is a casual-access lock rather than strong security: only a salted PBKDF2-SHA256 hash is stored, and anyone with administrator rights can reset it.</p></div>
+    <div class="reveal"><span class="eyebrow">Reverting</span><h2>Returning to stock</h2>
+      <p class="muted" style="margin-top:14px">Switch <b style="color:var(--text)">TORQUE tweaks</b> off in the sidebar, or choose <b style="color:var(--text)">Backups &amp; Restore → Revert everything</b>, then restart. Your PC returns to its original configuration. The Windows System Restore point provides an additional fallback.</p>
+      <p class="muted">For a complete list of everything that can be changed, see the <a href="tweaks.html">Tweak reference</a>.</p></div>
+  </div>
+</div></section>
+
+<section class="section alt"><div class="wrap">
+  <div class="section-head reveal"><span class="eyebrow">Responsible disclosure</span><h2>Found a security concern?</h2><p>If you believe you have found a vulnerability or something in TORQUE that behaves unexpectedly, please tell us through the <a href="community.html#support">community support channel</a>. Include the Activity Log export (Settings → About → Activity log) and, where relevant, the VirusTotal link.</p></div>
+</div></section>
+<section class="section"><div class="wrap"><div class="cta-band reveal">
+  <div><h2>Verified it? Download TORQUE.</h2><p>The checksum for the current release is shown on the download page.</p></div>
+  <div class="cta-actions"><a class="btn btn-primary" href="download.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0-5-5m5 5 5-5M4 19h16"/></svg>Download for Windows</a><a class="btn btn-secondary" href="security.html">Review the security details</a></div>
+</div></div></section>
+
+</main>
+<footer class="site-footer"><div class="wrap">
+  <div class="footer-grid">
+    <div class="footer-about"><a class="brand" href="index.html"><img src="img/logo.png" alt="" width="30" height="30">TORQUE</a>
+      <p>A transparent, reversible performance suite for Windows gaming PCs. Currently in free public beta.</p></div>
+    <div><h4>Product</h4><ul><li><a href="features.html">Features</a></li><li><a href="tweaks.html">Tweak reference</a></li><li><a href="changelog.html">Changelog</a></li><li><a href="download.html">Download</a></li></ul></div>
+    <div><h4>Resources</h4><ul><li><a href="security.html">Security &amp; transparency</a></li><li><a href="faq.html">FAQ</a></li><li><a href="download.html#install">Installation guide</a></li><li><a href="privacy.html">Privacy &amp; terms</a></li></ul></div>
+    <div><h4>Community</h4><ul><li><a href="community.html" data-discord>Discord server</a></li><li><a href="community.html#support">Get support</a></li><li><a href="community.html#feedback">Share feedback</a></li></ul></div>
+  </div>
+  <div class="legal">
+    <p>TORQUE beta v2.3. Not affiliated with or endorsed by Microsoft, NVIDIA, Epic Games or any game publisher; all trademarks belong to their owners. TORQUE changes system settings: every change is backed up and can be reverted, but you use it at your own risk.</p>
+    <p>Includes Intel PresentMon (MIT), ViVeTool (GPL-3.0), NvAPIWrapper (LGPL-3.0), Inter and Barlow fonts (OFL) and Fluent UI icons (MIT). Licences are included in the download.</p>
+  </div>
+</div></footer>
+<script src="assets/site.js"></script>
+</body>
+</html>
