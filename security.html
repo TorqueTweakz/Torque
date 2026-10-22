@@ -44,12 +44,12 @@
   <div class="section-head reveal"><span class="eyebrow">Verification</span><h2>Check the download yourself</h2><p>We recommend completing at least the first two steps before running TORQUE for the first time.</p></div>
   <ol class="steps reveal">
     <li><strong>Verify the checksum.</strong> Confirm that the file you downloaded is identical to the file published here. In PowerShell:
-      <pre><code>Get-FileHash .\TORQUE-v2.3.zip -Algorithm SHA256</code></pre>
+      <pre><code>Get-FileHash .\TORQUE-v2.4.zip -Algorithm SHA256</code></pre>
       or in Command Prompt:
-      <pre><code>certutil -hashfile TORQUE-v2.3.zip SHA256</code></pre>
+      <pre><code>certutil -hashfile TORQUE-v2.4.zip SHA256</code></pre>
       The result must match this value exactly:
-      <div class="hashrow" style="margin-top:12px"><code id="sha">fbc66840afe4d8cbeeaf497493464eee2e8a04949b43feb3770c830b5ca15468</code><button class="btn btn-secondary btn-sm" data-copy="#sha" type="button">Copy</button></div></li>
-    <li><strong>Scan it with multiple engines.</strong> Upload the zip to <a href="https://www.virustotal.com" target="_blank" rel="noopener">VirusTotal</a>, or <a href="https://www.virustotal.com/gui/file/fbc66840afe4d8cbeeaf497493464eee2e8a04949b43feb3770c830b5ca15468?nocache=1" target="_blank" rel="noopener">look up this file's hash</a> to see whether it has already been analyzed. Because the application is unsigned and edits system settings, a small number of generic or heuristic detections is possible; see "Warnings you may see" below.</li>
+      <div class="hashrow" style="margin-top:12px"><code id="sha">887aa0aa652dcd820c08bba305e830b6c4c053b4293c2b9cb12fd0cfb51bdbf8</code><button class="btn btn-secondary btn-sm" data-copy="#sha" type="button">Copy</button></div></li>
+    <li><strong>Scan it with multiple engines.</strong> Upload the zip to <a href="https://www.virustotal.com" target="_blank" rel="noopener">VirusTotal</a>, or <a href="https://www.virustotal.com/gui/file/887aa0aa652dcd820c08bba305e830b6c4c053b4293c2b9cb12fd0cfb51bdbf8?nocache=1" target="_blank" rel="noopener">look up this file's hash</a> to see whether it has already been analyzed. Because the application is unsigned and edits system settings, a small number of generic or heuristic detections is possible; see "Warnings you may see" below.</li>
     <li><strong>Test in isolation (optional).</strong> If you want additional assurance, run TORQUE inside <a href="https://learn.microsoft.com/windows/security/application-security/application-isolation/windows-sandbox/" target="_blank" rel="noopener">Windows Sandbox</a> or a virtual machine first. TORQUE detects virtual machines and switches to Low Performance mode automatically.</li>
     <li><strong>Review before you apply.</strong> Nothing is changed until you click Apply, and the preview lists every setting. The complete catalogue is also published in the <a href="tweaks.html">Tweak reference</a>.</li>
   </ol>
@@ -120,7 +120,7 @@
     <div><h4>Community</h4><ul><li><a href="community.html" data-discord>Discord server</a></li><li><a href="community.html#support">Get support</a></li><li><a href="community.html#feedback">Share feedback</a></li></ul></div>
   </div>
   <div class="legal">
-    <p>TORQUE beta v2.3. Not affiliated with or endorsed by Microsoft, NVIDIA, Epic Games or any game publisher; all trademarks belong to their owners. TORQUE changes system settings: every change is backed up and can be reverted, but you use it at your own risk.</p>
+    <p>TORQUE beta v2.4. Not affiliated with or endorsed by Microsoft, NVIDIA, Epic Games or any game publisher; all trademarks belong to their owners. TORQUE changes system settings: every change is backed up and can be reverted, but you use it at your own risk.</p>
     <p>Includes Intel PresentMon (MIT), ViVeTool (GPL-3.0), NvAPIWrapper (LGPL-3.0), Inter and Barlow fonts (OFL) and Fluent UI icons (MIT). Licences are included in the download.</p>
   </div>
 </div></footer>

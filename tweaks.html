@@ -4,11 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Tweak Reference — TORQUE</title>
-<meta name="description" content="The complete list of the 44 Windows, driver and network tweaks TORQUE can apply, with the optimization level and the exact settings each one changes.">
+<meta name="description" content="The complete list of the 51 Windows, driver and network tweaks TORQUE can apply, with the optimization level and the exact settings each one changes.">
 <meta name="theme-color" content="#0b0c0e">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Tweak Reference — TORQUE">
-<meta property="og:description" content="The complete list of the 44 Windows, driver and network tweaks TORQUE can apply, with the optimization level and the exact settings each one changes.">
+<meta property="og:description" content="The complete list of the 51 Windows, driver and network tweaks TORQUE can apply, with the optimization level and the exact settings each one changes.">
 <meta property="og:image" content="img/02-optimize.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="img/logo.png">
@@ -68,9 +68,15 @@
 <tr data-level="med"><td><b>Telemetry to minimum</b><small>Privacy; tiny background CPU/network</small></td><td><span class="badge med">MED</span></td><td>Registry HKLM\…\DataCollection → AllowTelemetry = 1<br>Service DiagTrack → Manual (never Disabled)<br>Service dmwappushservice → Manual (never Disabled)</td></tr>
 <tr data-level="med"><td><b>Advertising ID &amp; tailored experiences off</b><small>Privacy</small></td><td><span class="badge med">MED</span></td><td>Registry HKCU\…\AdvertisingInfo → Enabled = 0<br>Registry HKCU\…\Privacy → TailoredExperiencesWithDiagnosticDataEnabled = 0</td></tr>
 <tr data-level="med"><td><b>Activity history off</b><small>Privacy</small></td><td><span class="badge med">MED</span></td><td>Registry HKLM\…\System → EnableActivityFeed = 0<br>Registry HKLM\…\System → PublishUserActivities = 0<br>Registry HKLM\…\System → UploadUserActivities = 0</td></tr>
-<tr data-level="med"><td><b>Non-essential services to Manual</b><small>Small RAM saving; services still start if something needs them</small></td><td><span class="badge med">MED</span></td><td>Service MapsBroker → Manual (never Disabled)<br>Service RetailDemo → Manual (never Disabled)<br>Service Fax → Manual (never Disabled)<br>Service TrkWks → Manual (never Disabled)<br>Service WMPNetworkSvc → Manual (never Disabled)</td></tr>
+<tr data-level="med"><td><b>Non-essential services to Manual</b><small>Small RAM saving; services still start if something needs them</small></td><td><span class="badge med">MED</span></td><td>Service MapsBroker → Manual (never Disabled)<br>Service RetailDemo → Manual (never Disabled)<br>Service Fax → Manual (never Disabled)<br>Service TrkWks → Manual (never Disabled)<br>Service WMPNetworkSvc → Manual (never Disabled)<br>Service PcaSvc → Manual (never Disabled)<br>Service StorSvc → Manual (never Disabled)<br>Service CscService → Manual (never Disabled)<br>Service SharedAccess → Manual (never Disabled)<br>Service WpcMonSvc → Manual (never Disabled)<br>Service AdobeARMservice → Manual, if installed (never Disabled)</td></tr>
+<tr data-level="med"><td><b>Print spooler to Manual (no printer found)</b><small>One less always-running service — only on PCs with no real printer</small></td><td><span class="badge med">MED</span></td><td>Service Spooler → Manual (never Disabled). Skipped automatically if a printer is installed.</td></tr>
+<tr data-level="med"><td><b>Search highlights &amp; web content off</b><small>Lighter Start/Search; no web content loading in the background</small></td><td><span class="badge med">MED</span></td><td>Registry HKCU\…\SearchSettings → IsDynamicSearchBoxEnabled = 0<br>Registry HKLM\…\Windows Search → EnableDynamicContentInWSB = 0</td></tr>
 <tr data-level="max"><td><b>Windows Low Latency Profile</b><small>Snappier response — CPU briefly boosts to max on input / app launch</small></td><td><span class="badge max">MAX</span></td><td>Windows feature flag 58989092 → enabled</td></tr>
 <tr data-level="max"><td><b>Processor boost mode: Aggressive</b><small>Slightly faster boost response; more heat</small></td><td><span class="badge max">MAX</span></td><td>Power plan setting → 2 (plugged in)</td></tr>
+<tr data-level="max"><td><b>Group Windows services (far fewer svchost processes)</b><small>Roughly 40–60 fewer processes after a restart; mostly a cleaner process list</small></td><td><span class="badge max">MAX</span></td><td>Registry HKLM\SYSTEM\CurrentControlSet\Control → SvcHostSplitThresholdInKB = your installed RAM (+1 GB)</td></tr>
+<tr data-level="max"><td><b>Games always start at High CPU priority</b><small>Steadier 1% lows when something runs in the background</small></td><td><span class="badge max">MAX</span></td><td>Registry HKLM\…\Image File Execution Options\&lt;game&gt;.exe\PerfOptions → CpuPriorityClass = 3 for Fortnite, CS2, Apex, Rocket League, Marvel Rivals (VALORANT left alone)</td></tr>
+<tr data-level="max"><td><b>Windows Search indexer to Manual</b><small>No background indexing spikes; file-content search gets slower</small></td><td><span class="badge max">MAX</span></td><td>Service WSearch → Manual (never Disabled)</td></tr>
+<tr data-level="max"><td><b>Block Store apps from running in the background (policy)</b><small>Phone Link and other Store apps stop running when closed</small></td><td><span class="badge max">MAX</span></td><td>Registry HKLM\…\Policies\Microsoft\Windows\AppPrivacy → LetAppsRunInBackground = 2</td></tr>
 <tr data-level="ultra"><td><b>Multiplane overlay (MPO) off</b><small>Fix for flicker / black screens — not an FPS tweak</small></td><td><span class="badge ultra">ULTRA</span></td><td>Registry HKLM\…\Dwm → OverlayTestMode = 5</td></tr>
 <tr data-level="ultra"><td><b>Hardware-accelerated GPU scheduling</b><small>Small FPS / latency; required for DLSS Frame Generation</small></td><td><span class="badge ultra">ULTRA</span></td><td>Registry HKLM\…\GraphicsDrivers → HwSchMode = 2</td></tr>
 <tr data-level="ultra"><td><b>Global timer resolution requests</b><small>Disputed — can help frame pacing in some games</small></td><td><span class="badge ultra">ULTRA</span></td><td>Registry HKLM\…\kernel → GlobalTimerResolutionRequests = 1</td></tr>
@@ -84,7 +90,8 @@
 <tr data-level="ultra"><td><b>Memory compression off</b><small>Less CPU spent compressing RAM — only sensible with 32 GB+ of RAM</small></td><td><span class="badge ultra">ULTRA</span></td><td>PowerShell: memory compression off</td></tr>
 <tr data-level="ultra"><td><b>CPU core parking off (AC)</b><small>Often none on modern desktop CPUs — benchmark it</small></td><td><span class="badge ultra">ULTRA</span></td><td>Power plan setting → 100 (plugged in)</td></tr>
 <tr data-level="ultra"><td><b>Minimum processor state 100% (AC)</b><small>Rarely measurable; higher idle temps/power</small></td><td><span class="badge ultra">ULTRA</span></td><td>Power plan setting → 100 (plugged in)</td></tr>
-<tr data-level="ultra"><td><b>SysMain (Superfetch) to Manual</b><small>Can reduce disk activity; may slow app launches</small></td><td><span class="badge ultra">ULTRA</span></td><td>Service SysMain → Manual (never Disabled)</td></tr></tbody>
+<tr data-level="ultra"><td><b>SysMain (Superfetch) to Manual</b><small>Can reduce disk activity; may slow app launches</small></td><td><span class="badge ultra">ULTRA</span></td><td>Service SysMain → Manual (never Disabled)</td></tr>
+<tr data-level="ultra"><td><b>Memory Integrity / VBS off (security trade-off)</b><small>~3–6% FPS in CPU-bound games (Tom's Hardware). Skipped if VALORANT (Vanguard) or FACEIT is installed</small></td><td><span class="badge ultra">ULTRA</span></td><td>Registry HKLM\…\DeviceGuard\Scenarios\HypervisorEnforcedCodeIntegrity → Enabled = 0<br>Registry HKLM\…\DeviceGuard → EnableVirtualizationBasedSecurity = 0</td></tr></tbody>
   </table></div>
   <p class="count" id="tweak-count"></p>
   <div class="callout info" style="margin-top:24px"><p><strong>How to read this table.</strong> Entries marked "Disputed" or "Experimental" have limited or inconsistent evidence of benefit and are only applied at the ULTRA level. Services are only ever set to Manual, never Disabled. Paths are shortened with an ellipsis (…) for readability.</p></div>
@@ -104,7 +111,7 @@
     <div><h4>Community</h4><ul><li><a href="community.html" data-discord>Discord server</a></li><li><a href="community.html#support">Get support</a></li><li><a href="community.html#feedback">Share feedback</a></li></ul></div>
   </div>
   <div class="legal">
-    <p>TORQUE beta v2.3. Not affiliated with or endorsed by Microsoft, NVIDIA, Epic Games or any game publisher; all trademarks belong to their owners. TORQUE changes system settings: every change is backed up and can be reverted, but you use it at your own risk.</p>
+    <p>TORQUE beta v2.4. Not affiliated with or endorsed by Microsoft, NVIDIA, Epic Games or any game publisher; all trademarks belong to their owners. TORQUE changes system settings: every change is backed up and can be reverted, but you use it at your own risk.</p>
     <p>Includes Intel PresentMon (MIT), ViVeTool (GPL-3.0), NvAPIWrapper (LGPL-3.0), Inter and Barlow fonts (OFL) and Fluent UI icons (MIT). Licences are included in the download.</p>
   </div>
 </div></footer>
