@@ -4,11 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Tweak Reference — TORQUE</title>
-<meta name="description" content="The complete list of the 51 Windows, driver and network tweaks TORQUE can apply, with the optimization level and the exact settings each one changes.">
+<meta name="description" content="The complete list of the 52 Windows, driver and network tweaks TORQUE can apply, with the optimization level and the exact settings each one changes.">
 <meta name="theme-color" content="#0b0c0e">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Tweak Reference — TORQUE">
-<meta property="og:description" content="The complete list of the 51 Windows, driver and network tweaks TORQUE can apply, with the optimization level and the exact settings each one changes.">
+<meta property="og:description" content="The complete list of the 52 Windows, driver and network tweaks TORQUE can apply, with the optimization level and the exact settings each one changes.">
 <meta property="og:image" content="img/02-optimize.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="img/logo.png">
@@ -77,6 +77,7 @@
 <tr data-level="max"><td><b>Games always start at High CPU priority</b><small>Steadier 1% lows when something runs in the background</small></td><td><span class="badge max">MAX</span></td><td>Registry HKLM\…\Image File Execution Options\&lt;game&gt;.exe\PerfOptions → CpuPriorityClass = 3 for Fortnite, CS2, Apex, Rocket League, Marvel Rivals (VALORANT left alone)</td></tr>
 <tr data-level="max"><td><b>Windows Search indexer to Manual</b><small>No background indexing spikes; file-content search gets slower</small></td><td><span class="badge max">MAX</span></td><td>Service WSearch → Manual (never Disabled)</td></tr>
 <tr data-level="max"><td><b>Block Store apps from running in the background (policy)</b><small>Phone Link and other Store apps stop running when closed</small></td><td><span class="badge max">MAX</span></td><td>Registry HKLM\…\Policies\Microsoft\Windows\AppPrivacy → LetAppsRunInBackground = 2</td></tr>
+<tr data-level="max"><td><b>Global timer resolution requests (Windows 11)</b><small>Lets Game Boost's 0.5 ms timer apply PC-wide on Windows 11; effect varies by PC and game</small></td><td><span class="badge max">MAX</span></td><td>Registry HKLM\…\Session Manager\kernel → GlobalTimerResolutionRequests = 1<br>Restart required</td></tr>
 <tr data-level="ultra"><td><b>Multiplane overlay (MPO) off</b><small>Fix for flicker / black screens — not an FPS tweak</small></td><td><span class="badge ultra">ULTRA</span></td><td>Registry HKLM\…\Dwm → OverlayTestMode = 5</td></tr>
 <tr data-level="ultra"><td><b>Hardware-accelerated GPU scheduling</b><small>Small FPS / latency; required for DLSS Frame Generation</small></td><td><span class="badge ultra">ULTRA</span></td><td>Registry HKLM\…\GraphicsDrivers → HwSchMode = 2</td></tr>
 <tr data-level="ultra"><td><b>Global timer resolution requests</b><small>Disputed — can help frame pacing in some games</small></td><td><span class="badge ultra">ULTRA</span></td><td>Registry HKLM\…\kernel → GlobalTimerResolutionRequests = 1</td></tr>
@@ -111,7 +112,7 @@
     <div><h4>Community</h4><ul><li><a href="community.html" data-discord>Discord server</a></li><li><a href="community.html#support">Get support</a></li><li><a href="community.html#feedback">Share feedback</a></li></ul></div>
   </div>
   <div class="legal">
-    <p>TORQUE beta v2.4. Not affiliated with or endorsed by Microsoft, NVIDIA, Epic Games or any game publisher; all trademarks belong to their owners. TORQUE changes system settings: every change is backed up and can be reverted, but you use it at your own risk.</p>
+    <p>TORQUE beta v2.5. Not affiliated with or endorsed by Microsoft, NVIDIA, Epic Games or any game publisher; all trademarks belong to their owners. TORQUE changes system settings: every change is backed up and can be reverted, but you use it at your own risk.</p>
     <p>Includes Intel PresentMon (MIT), ViVeTool (GPL-3.0), NvAPIWrapper (LGPL-3.0), Inter and Barlow fonts (OFL) and Fluent UI icons (MIT). Licences are included in the download.</p>
   </div>
 </div></footer>

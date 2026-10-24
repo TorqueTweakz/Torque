@@ -2,7 +2,7 @@
 
 // Set your Discord invite here (e.g. "https://discord.gg/abc123"). Every Discord button on the
 // site reads this value. While it is empty, those buttons point to the Community page instead.
-const DISCORD_INVITE = "https://discord.gg/cRKtpQanvU";
+const DISCORD_INVITE = "https://discord.gg/BY3MgZftgC";
 
 document.documentElement.classList.add("js");
 
