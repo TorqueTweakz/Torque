@@ -1,14 +1,11 @@
 {
-  "version": "2.5.0",
+  "version": "2.7.0",
   "minVersion": "2.4.0",
   "download": "https://torquetweakz.github.io/Torque/download.html",
-  "sha256": "30efa803fdd69d90aefb5821fe51870dfeb626d206722ffe52d92d9cc3c9a49d",
-  "notes": [
-    "Update banner and Copy diagnostics button",
-    "Timer resolution in Game Boost",
-    "Level filter shows LOW / MED / MAX / ULTRA; CPU temp fix"
-  ],
+  "sha256": "7817def5f72bd366345a56c7d4f70bc7677f03fcfe08650447863ca85cb55586",
+  "notes": ["New look across the whole app", "TORQUE Plus: ULTRA, Plus tweak pack, Bottleneck Doctor and more", "Crosshair overlay and 10 new free tweaks", "Signed updates"],
   "paidFeatures": [],
   "statsUrl": "",
-  "discordInvite": "https://discord.gg/BY3MgZftgC"
+  "discordInvite": "https://discord.gg/BY3MgZftgC",
+  "licenseUrl": "https://torque-bot.torquetweaks.workers.dev"
 }

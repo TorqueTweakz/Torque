@@ -3,78 +3,66 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Privacy & Terms — TORQUE</title>
-<meta name="description" content="TORQUE&#x27;s privacy practices and terms of use: no account, no telemetry, local-only data, and use at your own risk.">
-<meta name="theme-color" content="#0b0c0e">
+<title>Privacy &amp; terms · TORQUE</title>
+<meta name="description" content="How TORQUE and this website handle data.">
+<meta name="theme-color" content="#0B0D10">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; font-src 'self'; connect-src 'none'; frame-src 'none'; base-uri 'self'; form-action 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta property="og:title" content="Privacy &amp; terms · TORQUE">
+<meta property="og:description" content="How TORQUE and this website handle data.">
+<meta property="og:image" content="https://torquetweakz.github.io/Torque/img/og.png">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Privacy &amp; Terms — TORQUE">
-<meta property="og:description" content="TORQUE&#x27;s privacy practices and terms of use: no account, no telemetry, local-only data, and use at your own risk.">
-<meta property="og:image" content="img/02-optimize.jpg">
-<meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="img/logo.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/style.css">
+<link rel="icon" href="img/icon-64.png">
+<link rel="preload" href="assets/fonts/manrope-800.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/style.css?v=2.7.0">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-<header class="site-header"><div class="wrap">
-  <a class="brand" href="index.html" aria-label="TORQUE home"><img src="img/logo.png" alt="" width="30" height="30">TORQUE</a>
-  <nav class="nav" id="nav" aria-label="Main"><a href="index.html">Home</a><a href="features.html">Features</a><a href="security.html">Security</a><a href="download.html">Download</a><a href="faq.html">FAQ</a><a href="community.html">Community</a></nav>
-  <div class="header-cta"><a class="btn btn-primary btn-sm" href="download.html">Download</a></div>
-  <button class="menu-btn" aria-label="Menu" aria-expanded="false" aria-controls="nav"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
-</div></header>
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="index.html" aria-label="TORQUE home"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="1" y="1" width="30" height="30" rx="10" fill="#14171B" stroke="#2A2F36" stroke-width="1.2"/>
+<path d="M8.6 18.6L16 9.6l7.4 9" fill="none" stroke="#ECEEF1" stroke-width="2.9" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M11.9 23.1L16 18.2l4.1 4.9" fill="none" stroke="#FF6B3D" stroke-width="2.9" stroke-linecap="round" stroke-linejoin="round"/></svg>TORQUE</a>
+    <nav class="links" aria-label="Main"><a href="index.html">Home</a><a href="features.html">Features</a><a href="plus.html">Plus</a><a href="tweaks.html">What it changes</a><a href="security.html">Safety</a><a href="faq.html">FAQ</a></nav>
+    <div class="cta"><a class="btn sm" href="https://discord.gg/BY3MgZftgC" rel="noopener">Discord</a><a class="btn sm primary" href="download.html">Download</a></div>
+    <button class="menu" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+  </div>
+</header>
 <main id="main">
-<section class="page-head"><div class="wrap">
-  <span class="eyebrow">Privacy &amp; terms</span>
-  <h1>Privacy and terms of use</h1>
-  <p class="lead">A plain-language summary of how TORQUE and this website handle data, and the terms under which the software is provided.</p>
+<section class="hero" style="padding-bottom:10px"><div class="wrap"><span class="eyebrow accent">Privacy &amp; terms</span><h1>Plain-language privacy.</h1></div></section>
+<section class="tight"><div class="wrap prose">
+<h2>The app</h2>
+<ul><li><b>No account and no telemetry.</b> The only optional usage data is an anonymous live-user counter (a random id and the version), off by default.</li>
+<li><b>Network use:</b> the DNS benchmark and ping test when you run them, links you open, and one small signed update file from this website (can be switched off).</li>
+<li><b>Plus licensing</b> sends your key and a one-way hash of your PC id to the TORQUE license server when you activate and about once a day after. Nothing else.</li>
+<li>Settings, backups, the activity log and benchmark runs stay on your PC in <code>%ProgramData%\Torque</code>.</li>
+<li>Exported profiles and share codes contain look and optimization settings only, never passwords, backups or file paths.</li></ul>
+<h2>This website</h2>
+<p>No analytics, ads or cookies. Fonts are self-hosted, so your browser talks only to GitHub Pages, which may log standard request data under GitHub's privacy policy.</p>
+<h2>Discord and purchases</h2>
+<p>Purchases happen in the TORQUE Discord. The bot stores your Discord user id, your order (product, length, amount, payment method you chose) and your key's status so it can deliver and renew Plus. Discord's own terms and privacy policy apply to the server.</p>
+<h2>Terms</h2>
+<ul><li><b>As is.</b> TORQUE is provided without warranty. It changes system settings; changes are previewed, backed up and reversible, but you use it at your own risk.</li>
+<li><b>Games.</b> Each publisher sets its own rules. You're responsible for using TORQUE within the rules of the games and tournaments you play.</li>
+<li><b>Plus keys</b> are for your own PCs (up to 2). Sharing, reselling or cracking keys or the Plus build gets the key revoked.</li>
+<li><b>Distribution.</b> Download TORQUE only from this site or the TORQUE Discord. Don't redistribute modified copies.</li>
+<li>TORQUE isn't affiliated with Microsoft, NVIDIA, AMD, Epic Games, Riot Games or any other company.</li></ul>
+<p style="color:var(--faint)">Last updated October 2026.</p>
 </div></section>
-<section class="section"><div class="wrap"><div class="prose">
-<h2 style="margin-top:0">Privacy</h2>
-<h3>The TORQUE application</h3>
-<ul>
-  <li>TORQUE does not require an account and does not collect telemetry. The only optional usage data is an anonymous live-user ping (a random id and the version number), which is <b>off by default</b> and can be enabled in Settings.</li>
-  <li>Its network activity is the optional DNS benchmark and ping test, links that you choose to open, and a small read of <code>latest.json</code> from this website to show &ldquo;update available&rdquo; (switch it off in Settings). Nothing is downloaded or installed automatically.</li>
-  <li>Configuration, backups, the activity log, benchmark results and Fortnite settings backups are stored locally on your PC in <code>%ProgramData%\Torque\</code>.</li>
-  <li>Exported <code>.torque</code> profiles contain appearance and optimization settings only. They do not include passwords, backups or file paths.</li>
-</ul>
-<h3>This website</h3>
-<ul>
-  <li>The site does not use analytics, advertising or tracking cookies.</li>
-  <li>Fonts are loaded from Google Fonts, which means your browser contacts Google's servers when you view a page.</li>
-  <li>The site is hosted on GitHub Pages, which may log standard request data under GitHub's own privacy policy.</li>
-  <li>If you join our Discord server, Discord's terms and privacy policy apply to that service.</li>
-</ul>
-
-<h2>Terms of use</h2>
-<ul>
-  <li><strong>Provided as is.</strong> TORQUE is beta software and is provided without warranty of any kind. It changes system settings; although changes are previewed, backed up and reversible, you use it at your own risk.</li>
-  <li><strong>Your responsibility.</strong> Back up important data and review the preview before applying changes. Experimental (ULTRA) tweaks are intended for experienced users.</li>
-  <li><strong>Online games.</strong> Anti-cheat and terms-of-service rules are set by each game publisher and may change. You are responsible for ensuring your use of any tool complies with the rules of the games you play.</li>
-  <li><strong>Distribution.</strong> Please download TORQUE only from this website and do not redistribute modified copies.</li>
-  <li><strong>Third-party components.</strong> TORQUE bundles Intel PresentMon (MIT), ViVeTool (GPL-3.0) and other components under their own licences, which are included in the download.</li>
-  <li><strong>Trademarks.</strong> TORQUE is not affiliated with or endorsed by Microsoft, NVIDIA, AMD, Epic Games or any other company. All trademarks belong to their respective owners.</li>
-  <li><strong>Pricing.</strong> TORQUE is free during the beta. A paid version is planned, and terms may be updated when it is released.</li>
-</ul>
-<p class="muted" style="margin-top:32px">Questions? Reach us through the <a href="community.html#support">support channel</a>.</p>
-</div></div></section>
-
 </main>
-<footer class="site-footer"><div class="wrap">
-  <div class="footer-grid">
-    <div class="footer-about"><a class="brand" href="index.html"><img src="img/logo.png" alt="" width="30" height="30">TORQUE</a>
-      <p>A transparent, reversible performance suite for Windows gaming PCs. Currently in free public beta.</p></div>
-    <div><h4>Product</h4><ul><li><a href="features.html">Features</a></li><li><a href="tweaks.html">Tweak reference</a></li><li><a href="changelog.html">Changelog</a></li><li><a href="download.html">Download</a></li></ul></div>
-    <div><h4>Resources</h4><ul><li><a href="security.html">Security &amp; transparency</a></li><li><a href="faq.html">FAQ</a></li><li><a href="download.html#install">Installation guide</a></li><li><a href="privacy.html">Privacy &amp; terms</a></li></ul></div>
-    <div><h4>Community</h4><ul><li><a href="community.html" data-discord>Discord server</a></li><li><a href="community.html#support">Get support</a></li><li><a href="community.html#feedback">Share feedback</a></li></ul></div>
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div><a class="brand" href="index.html"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="1" y="1" width="30" height="30" rx="10" fill="#14171B" stroke="#2A2F36" stroke-width="1.2"/>
+<path d="M8.6 18.6L16 9.6l7.4 9" fill="none" stroke="#ECEEF1" stroke-width="2.9" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M11.9 23.1L16 18.2l4.1 4.9" fill="none" stroke="#FF6B3D" stroke-width="2.9" stroke-linecap="round" stroke-linejoin="round"/></svg>TORQUE</a><p style="margin-top:14px;max-width:340px">A transparent, reversible performance suite for Windows gaming PCs. Every change is previewed, backed up and undoable.</p></div>
+      <div><h5>Product</h5><a href="features.html">Features</a><a href="plus.html">TORQUE Plus</a><a href="tweaks.html">What it changes</a><a href="changelog.html">Changelog</a><a href="download.html">Download</a></div>
+      <div><h5>Trust</h5><a href="security.html">Safety &amp; security</a><a href="privacy.html">Privacy &amp; terms</a><a href="faq.html">FAQ</a></div>
+      <div><h5>Community</h5><a href="https://discord.gg/BY3MgZftgC" rel="noopener">Discord server</a><a href="community.html">Get support</a></div>
+    </div>
+    <div class="fine">TORQUE v2.7. Not affiliated with or endorsed by Microsoft, NVIDIA, AMD, Epic Games, Riot Games or any game publisher; all trademarks belong to their owners. TORQUE changes system settings: every change is backed up and can be reverted, but you use it at your own risk. Includes Intel PresentMon (MIT), ViVeTool (GPL-3.0), NvAPIWrapper (LGPL-3.0), Manrope and Inter fonts (OFL) and Fluent UI icons (MIT); licences are included in the download.</div>
   </div>
-  <div class="legal">
-    <p>TORQUE beta v2.5. Not affiliated with or endorsed by Microsoft, NVIDIA, Epic Games or any game publisher; all trademarks belong to their owners. TORQUE changes system settings: every change is backed up and can be reverted, but you use it at your own risk.</p>
-    <p>Includes Intel PresentMon (MIT), ViVeTool (GPL-3.0), NvAPIWrapper (LGPL-3.0), Inter and Barlow fonts (OFL) and Fluent UI icons (MIT). Licences are included in the download.</p>
-  </div>
-</div></footer>
-<script src="assets/site.js"></script>
+</footer>
+<script src="assets/site.js?v=2.7.0"></script>
 </body>
 </html>

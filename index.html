@@ -3,122 +3,114 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>TORQUE — Windows Performance Suite for Gamers</title>
-<meta name="description" content="TORQUE tunes Windows, your NVIDIA driver and your games for lower input latency and more consistent frame times. Previewed, backed up and fully reversible. Free during beta.">
-<meta name="theme-color" content="#0b0c0e">
+<title>TORQUE: Windows tuning for gamers, fully reversible</title>
+<meta name="description" content="Tune Windows, NVIDIA and game settings in one guided step. Preview every change, back up every value, undo anything.">
+<meta name="theme-color" content="#0B0D10">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; font-src 'self'; connect-src 'none'; frame-src 'none'; base-uri 'self'; form-action 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta property="og:title" content="TORQUE: Windows tuning for gamers, fully reversible">
+<meta property="og:description" content="Tune Windows, NVIDIA and game settings in one guided step. Preview every change, back up every value, undo anything.">
+<meta property="og:image" content="https://torquetweakz.github.io/Torque/img/og.png">
 <meta property="og:type" content="website">
-<meta property="og:title" content="TORQUE — Windows Performance Suite for Gamers">
-<meta property="og:description" content="TORQUE tunes Windows, your NVIDIA driver and your games for lower input latency and more consistent frame times. Previewed, backed up and fully reversible. Free during beta.">
-<meta property="og:image" content="img/02-optimize.jpg">
-<meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="img/logo.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/style.css">
+<link rel="icon" href="img/icon-64.png">
+<link rel="preload" href="assets/fonts/manrope-800.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/style.css?v=2.7.0">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-<header class="site-header"><div class="wrap">
-  <a class="brand" href="index.html" aria-label="TORQUE home"><img src="img/logo.png" alt="" width="30" height="30">TORQUE</a>
-  <nav class="nav" id="nav" aria-label="Main"><a href="index.html" aria-current="page">Home</a><a href="features.html">Features</a><a href="security.html">Security</a><a href="download.html">Download</a><a href="faq.html">FAQ</a><a href="community.html">Community</a></nav>
-  <div class="header-cta"><a class="btn btn-primary btn-sm" href="download.html">Download</a></div>
-  <button class="menu-btn" aria-label="Menu" aria-expanded="false" aria-controls="nav"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
-</div></header>
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="index.html" aria-label="TORQUE home"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="1" y="1" width="30" height="30" rx="10" fill="#14171B" stroke="#2A2F36" stroke-width="1.2"/>
+<path d="M8.6 18.6L16 9.6l7.4 9" fill="none" stroke="#ECEEF1" stroke-width="2.9" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M11.9 23.1L16 18.2l4.1 4.9" fill="none" stroke="#FF6B3D" stroke-width="2.9" stroke-linecap="round" stroke-linejoin="round"/></svg>TORQUE</a>
+    <nav class="links" aria-label="Main"><a href="index.html" aria-current=page>Home</a><a href="features.html">Features</a><a href="plus.html">Plus</a><a href="tweaks.html">What it changes</a><a href="security.html">Safety</a><a href="faq.html">FAQ</a></nav>
+    <div class="cta"><a class="btn sm" href="https://discord.gg/BY3MgZftgC" rel="noopener">Discord</a><a class="btn sm primary" href="download.html">Download</a></div>
+    <button class="menu" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+  </div>
+</header>
 <main id="main">
 
-<section class="hero"><div class="wrap hero-grid">
-  <div>
-    <span class="eyebrow">Public beta · v2.5</span>
-    <h1>Tune Windows for lower latency and steadier frame times.</h1>
-    <p class="lead">TORQUE applies documented Windows, NVIDIA driver and in-game settings in a single guided step. You review every change before it is made, and one switch restores your original configuration.</p>
-    <div class="actions">
-      <a class="btn btn-primary" href="download.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0-5-5m5 5 5-5M4 19h16"/></svg>Download for Windows</a>
-      <a class="btn btn-secondary" href="security.html">Review security details</a>
+<section class="hero">
+  <div class="wrap">
+    <span class="pill"><span class="dot"></span>v2.7 · Free and Plus</span>
+    <h1 style="margin-top:26px">Tune Windows for gaming.<br>Undo anything, any time.</h1>
+    <p class="lead">TORQUE applies documented Windows, NVIDIA and in-game settings in one guided step. You see every change before it happens, every original value is backed up, and one switch puts your PC back to stock.</p>
+    <div class="actions"><a class="btn primary" href="download.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11m0 0l-4.5-4.5M12 15l4.5-4.5M5 19.5h14"/></svg>Download free</a><a class="btn" href="plus.html">See TORQUE Plus</a></div>
+    <div class="meta"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Windows 10 &amp; 11</span><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>No account</span><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>No telemetry</span><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Fully reversible</span></div>
+    <div class="shot rv"><img src="img/v27-dashboard.jpg" width="1440" height="900" alt="TORQUE Your PC page: optimization level picker, Game Boost, Bottleneck Doctor and the top fixes for this PC"></div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="head"><span class="eyebrow accent">How it works</span><h2>Measure, preview, apply.</h2><p>TORQUE is built so you always know what is about to change, and can always go back.</p></div>
+    <div class="grid g3">
+      <div class="card rv"><div class="num">1</div><h3>Measure</h3><p>Health check finds the big wins first: refresh rate, RAM speed, the wrong display port. Benchmark records real frame times with Intel PresentMon.</p></div>
+      <div class="card rv"><div class="num">2</div><h3>Preview</h3><p>Pick a level. Every setting is listed with its current and new value before anything is touched, and you can untick any of them.</p></div>
+      <div class="card rv"><div class="num">3</div><h3>Apply and verify</h3><p>A restore point and a backup of every original value come first. Benchmark again and keep what helps. Revert the rest with one click.</p></div>
     </div>
-    <ul class="facts"><li>Windows 10 &amp; 11</li><li>75 MB portable executable</li><li>No account required</li><li>Fully reversible</li></ul>
   </div>
-  <figure class="frame"><div class="frame-bar"><i></i><i></i><i></i></div><img src="img/02-optimize.jpg" width="1200" height="750" alt="The TORQUE Optimize screen showing the four optimization levels and a change preview"></figure>
-</div></section>
+</section>
 
-<section class="section alt"><div class="wrap">
-  <div class="section-head reveal"><span class="eyebrow">How it works</span><h2>A predictable process, from first scan to final result</h2><p>TORQUE is designed so that you always know what is about to change, and can always go back.</p></div>
-  <div class="grid g3">
-    <div class="card reveal"><div class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3v18h18"/><path d="m7 15 4-4 3 3 6-6"/></svg></div><h3>1. Measure</h3><p>Run a Health Check and record a baseline in Benchmark Lab. Frame times are captured with Intel PresentMon so you have real numbers to compare against.</p></div>
-    <div class="card reveal"><div class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></div><h3>2. Preview</h3><p>Choose an optimization level. TORQUE lists every setting it will change, showing the current and new value, before anything is applied.</p></div>
-    <div class="card reveal"><div class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg></div><h3>3. Apply and verify</h3><p>TORQUE creates a restore point, backs up original values and applies the changes. Run the benchmark again to confirm the difference on your own hardware.</p></div>
+<section class="tight">
+  <div class="wrap">
+    <div class="head"><span class="eyebrow accent">Optimization levels</span><h2>Choose how far to go.</h2><p>Each level builds on the one before. LOW and MED suit every PC. MAX is for dedicated gaming rigs. ULTRA is part of Plus.</p></div>
+    <div class="grid g4 levels">
+      <div class="card rv"><div class="lvl">LOW <span class="tag good">FREE</span></div><div class="bar"><i style="width:25%"></i></div><p>Max refresh rate, NVIDIA low-latency profile, Game Mode, no forced restarts mid-game.</p></div>
+      <div class="card rv"><div class="lvl">MED <span class="tag good">FREE</span></div><div class="bar"><i style="width:50%"></i></div><p>Adds USB, PCIe and CPU latency power settings, curated debloat, startup clean-up and tuned game configs.</p></div>
+      <div class="card rv"><div class="lvl">MAX <span class="tag good">FREE</span></div><div class="bar"><i style="width:75%"></i></div><p>Adds Windows' Low Latency Profile, the fastest DNS, service grouping, competitive game configs and Game Boost.</p></div>
+      <div class="card rv"><div class="lvl">ULTRA <span class="tag">PLUS</span></div><div class="bar"><i style="width:100%"></i></div><p>Adds the 19-tweak Plus pack: timer resolution, MSI interrupts, core parking, network and memory tuning.</p></div>
+    </div>
   </div>
-</div></section>
+</section>
 
-<section class="section"><div class="wrap">
-  <div class="section-head reveal"><span class="eyebrow">Optimization levels</span><h2>Choose how far to go</h2><p>Each level builds on the previous one. Start with LOW or MED; ULTRA is intended for experienced users and includes a warning and a restart.</p></div>
-  <div class="grid g4">
-    <div class="level reveal"><h3>LOW <span class="meter" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i></span></h3><p>Essential, low-risk changes: maximum refresh rate, NVIDIA low-latency driver profile and Game Mode. No forced restarts.</p></div>
-    <div class="level reveal"><h3>MED <span class="meter" aria-hidden="true"><i class="on"></i><i class="on"></i><i></i><i></i></span></h3><p>Adds USB, PCIe and CPU latency power settings, curated debloat, startup cleanup and balanced game configurations.</p></div>
-    <div class="level reveal"><h3>MAX <span class="meter" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></h3><p>Adds the Windows Low Latency Profile, a faster DNS provider, competitive game configurations and Game Boost.</p></div>
-    <div class="level top reveal"><h3>ULTRA <span class="meter" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></h3><p>Adds experimental tweaks and hardware GPU scheduling. Shows a warning first and requires a restart.</p></div>
+<section>
+  <div class="wrap">
+    <div class="head"><span class="eyebrow accent">What's inside</span><h2>Everything that actually moves frame times.</h2></div>
+    <div class="grid g3">
+      <div class="card rv"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="7" width="19" height="11" rx="5.5"/><path d="M7.5 10.5v4M5.5 12.5h4M15.5 11.5h.01M17.5 13.5h.01"/></svg></div><h3>Per-game configs</h3><p>Fortnite, VALORANT, CS2, Apex, Rocket League, Marvel Rivals and Minecraft, written into each game's own settings file.</p></div>
+      <div class="card rv"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="3"/><circle cx="15" cy="12" r="3"/><path d="M6.5 10h3M6.5 14h3"/></svg></div><h3>NVIDIA driver profiles</h3><p>Low Latency Mode, V-Sync, shader cache and power management per game, through the official driver API.</p></div>
+      <div class="card rv"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 3L5 13.5h6L10 21l8-10.5h-6z"/></svg></div><h3>Game Boost</h3><p>While a game runs: performance power plan, high priority, muted notifications and approved apps paused. All restored when you quit.</p></div>
+      <div class="card rv"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5h16M7 16l3.5-4.5 3 2.5L18 8"/></svg></div><h3>Benchmark Lab</h3><p>Average FPS, 1% and 0.1% lows and stutter from real frame times, with a saved before-and-after comparison.</p></div>
+      <div class="card rv"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-7.5-4.4-7.5-10.2A4.3 4.3 0 0112 7.3a4.3 4.3 0 017.5 2.5C19.5 15.6 12 20 12 20z"/><path d="M7 12h2.5l1.5-2.5 2 5 1.5-2.5H17"/></svg></div><h3>Health check</h3><p>Catches the settings that cost the most FPS, like a 240 Hz monitor running at 144 Hz or RAM below its rated speed.</p></div>
+      <div class="card rv"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M12 2v5M12 17v5M2 12h5M17 12h5"/><circle cx="12" cy="12" r="1.2"/></svg></div><h3>Crosshair overlay</h3><p>New in 2.7. A click-through crosshair for borderless games. Nothing is injected into the game.</p></div>
+    </div>
+    <p style="margin-top:26px"><a class="btn" href="features.html">All features</a></p>
   </div>
-</div></section>
+</section>
 
-<section class="section alt"><div class="wrap">
-  <div class="section-head reveal"><span class="eyebrow">Capabilities</span><h2>Built around the things that affect gaming performance</h2></div>
-  <div class="grid g3">
-    <div class="card reveal"><div class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="7" width="20" height="12" rx="4"/><path d="M7 13h4M9 11v4M15.5 12.5h.01M18 14.5h.01"/></svg></div><h3>Per-game configuration</h3><p>Detects Fortnite, VALORANT, CS2, Apex Legends, Rocket League, Marvel Rivals and Minecraft, and writes tuned values into each game's own settings file.</p></div>
-    <div class="card reveal"><div class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M9 9h6v6H9zM9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 15h3M1 9h3M1 15h3"/></svg></div><h3>NVIDIA driver profiles</h3><p>Configures Low Latency Mode, V-Sync, shader cache size and power management per game through the driver profile database.</p></div>
-    <div class="card reveal"><div class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg></div><h3>Game Boost</h3><p>While a profiled game runs, TORQUE switches the power plan, raises game priority and pauses background apps you approve. Toggle it with Ctrl+Alt+B.</p></div>
-    <div class="card reveal"><div class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div><h3>Stretched resolutions</h3><p>Creates 1750×1080, 1650×1080 and other resolutions through the NVIDIA driver API, with an automatic revert if you do not confirm the change.</p></div>
-    <div class="card reveal"><div class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h4l3-8 4 16 3-8h4"/></svg></div><h3>Benchmark Lab</h3><p>Measure average FPS, 1% and 0.1% lows and stutter rate, and keep Before/After comparisons.</p></div>
-    <div class="card reveal"><div class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg></div><h3>Complete activity log</h3><p>Every change is timestamped and exportable, so you can always see what TORQUE did and when.</p></div>
+<section class="tight">
+  <div class="wrap">
+    <div class="card big flat rv callout">
+      <div style="max-width:620px"><span class="eyebrow accent">Safety first</span><h2 style="font-size:32px">Nothing hidden, nothing permanent.</h2>
+      <p style="margin-top:14px">TORQUE never disables Defender, SmartScreen, UAC, Windows Update or CPU security mitigations, never forces HPET, and never sets services to Disabled. Every change has a one-click revert, and Revert, backups and Health check are free forever.</p></div>
+      <div style="display:flex;gap:12px;flex-wrap:wrap"><a class="btn" href="security.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5.5c0 4.4-3 8.1-7 9.5-4-1.4-7-5.1-7-9.5V6z"/><path d="M9 12l2 2 4-4"/></svg>How it stays safe</a><a class="btn" href="tweaks.html">See every tweak</a></div>
+    </div>
   </div>
-  <p style="margin-top:28px"><a class="btn btn-secondary" href="features.html">Explore all features</a></p>
-</div></section>
+</section>
 
-<section class="section"><div class="wrap">
-  <div class="section-head reveal"><span class="eyebrow">Interface</span><h2>A clear, focused interface</h2><p>Live system stats, per-game controls and a Personalize page, plus a Low Performance mode that keeps TORQUE light on older PCs and virtual machines.</p></div>
-  <div class="grid g2">
-    <figure class="frame reveal"><div class="frame-bar"><i></i><i></i><i></i></div><img src="img/01-dashboard.jpg" width="1200" height="750" loading="lazy" alt="TORQUE dashboard with live CPU, GPU, memory and network statistics"></figure>
-    <figure class="frame reveal"><div class="frame-bar"><i></i><i></i><i></i></div><img src="img/03-games.jpg" width="1200" height="750" loading="lazy" alt="TORQUE Games page listing detected games and their configuration status"></figure>
+<section>
+  <div class="wrap center" style="text-align:center">
+    <h2>Ready when you are.</h2>
+    <p style="margin:16px auto 30px;max-width:520px">Free download, no account. Join the Discord for help, results and Plus.</p>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap"><a class="btn primary" href="download.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11m0 0l-4.5-4.5M12 15l4.5-4.5M5 19.5h14"/></svg>Download TORQUE</a><a class="btn" href="https://discord.gg/BY3MgZftgC" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.5 7.5a15 15 0 017 0M7 16.5c3.2 1.6 6.8 1.6 10 0M6 17.5L4.5 9c1.4-1.6 3-2.6 4.5-3l1 1.5M18 17.5L19.5 9c-1.4-1.6-3-2.6-4.5-3L14 7.5"/><circle cx="9.5" cy="12.5" r="1.2"/><circle cx="14.5" cy="12.5" r="1.2"/></svg>Join the Discord</a></div>
   </div>
-</div></section>
-
-<section class="section alt"><div class="wrap">
-  <div class="grid g2" style="align-items:center;gap:48px">
-    <div class="reveal"><span class="eyebrow">Security &amp; transparency</span><h2>Designed to be inspected, not trusted blindly</h2>
-      <p class="muted" style="margin-top:14px">TORQUE requires administrator rights because it changes system settings. For that reason we publish the exact list of every change it can make, a SHA-256 checksum for each release, and clear guidance on how to scan and verify the download yourself.</p>
-      <p><a class="btn btn-secondary" href="security.html">Read the security overview</a></p></div>
-    <ul class="checks reveal">
-      <li><b>Preview before apply.</b> Each change is shown with its old and new value.</li>
-      <li><b>Restore point and backups.</b> Original values are captured before the first change.</li>
-      <li><b>No Defender, UAC or Windows Update changes.</b> These are blocked in code.</li>
-      <li><b>No telemetry or account.</b> Network use: optional DNS/ping tests and an update check you can switch off.</li>
-      <li><b>Published tweak list.</b> <a href="tweaks.html">All 52 tweaks</a>, documented.</li>
-    </ul>
-  </div>
-</div></section>
-
-<section class="section"><div class="wrap"><div class="cta-band reveal">
-  <div><h2>Join the community</h2><p>Get help, share your setups and benchmark results, and follow development directly with the people building TORQUE.</p></div>
-  <div class="cta-actions"><a class="btn btn-discord" href="community.html" data-discord><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg>Join our Discord</a></div>
-</div></div></section>
-<section class="section"><div class="wrap"><div class="cta-band reveal">
-  <div><h2>Ready to try TORQUE?</h2><p>Free during the public beta. No account required, and every change can be reverted.</p></div>
-  <div class="cta-actions"><a class="btn btn-primary" href="download.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0-5-5m5 5 5-5M4 19h16"/></svg>Download for Windows</a><a class="btn btn-secondary" href="security.html">Review the security details</a></div>
-</div></div></section>
+</section>
 
 </main>
-<footer class="site-footer"><div class="wrap">
-  <div class="footer-grid">
-    <div class="footer-about"><a class="brand" href="index.html"><img src="img/logo.png" alt="" width="30" height="30">TORQUE</a>
-      <p>A transparent, reversible performance suite for Windows gaming PCs. Currently in free public beta.</p></div>
-    <div><h4>Product</h4><ul><li><a href="features.html">Features</a></li><li><a href="tweaks.html">Tweak reference</a></li><li><a href="changelog.html">Changelog</a></li><li><a href="download.html">Download</a></li></ul></div>
-    <div><h4>Resources</h4><ul><li><a href="security.html">Security &amp; transparency</a></li><li><a href="faq.html">FAQ</a></li><li><a href="download.html#install">Installation guide</a></li><li><a href="privacy.html">Privacy &amp; terms</a></li></ul></div>
-    <div><h4>Community</h4><ul><li><a href="community.html" data-discord>Discord server</a></li><li><a href="community.html#support">Get support</a></li><li><a href="community.html#feedback">Share feedback</a></li></ul></div>
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div><a class="brand" href="index.html"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="1" y="1" width="30" height="30" rx="10" fill="#14171B" stroke="#2A2F36" stroke-width="1.2"/>
+<path d="M8.6 18.6L16 9.6l7.4 9" fill="none" stroke="#ECEEF1" stroke-width="2.9" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M11.9 23.1L16 18.2l4.1 4.9" fill="none" stroke="#FF6B3D" stroke-width="2.9" stroke-linecap="round" stroke-linejoin="round"/></svg>TORQUE</a><p style="margin-top:14px;max-width:340px">A transparent, reversible performance suite for Windows gaming PCs. Every change is previewed, backed up and undoable.</p></div>
+      <div><h5>Product</h5><a href="features.html">Features</a><a href="plus.html">TORQUE Plus</a><a href="tweaks.html">What it changes</a><a href="changelog.html">Changelog</a><a href="download.html">Download</a></div>
+      <div><h5>Trust</h5><a href="security.html">Safety &amp; security</a><a href="privacy.html">Privacy &amp; terms</a><a href="faq.html">FAQ</a></div>
+      <div><h5>Community</h5><a href="https://discord.gg/BY3MgZftgC" rel="noopener">Discord server</a><a href="community.html">Get support</a></div>
+    </div>
+    <div class="fine">TORQUE v2.7. Not affiliated with or endorsed by Microsoft, NVIDIA, AMD, Epic Games, Riot Games or any game publisher; all trademarks belong to their owners. TORQUE changes system settings: every change is backed up and can be reverted, but you use it at your own risk. Includes Intel PresentMon (MIT), ViVeTool (GPL-3.0), NvAPIWrapper (LGPL-3.0), Manrope and Inter fonts (OFL) and Fluent UI icons (MIT); licences are included in the download.</div>
   </div>
-  <div class="legal">
-    <p>TORQUE beta v2.5. Not affiliated with or endorsed by Microsoft, NVIDIA, Epic Games or any game publisher; all trademarks belong to their owners. TORQUE changes system settings: every change is backed up and can be reverted, but you use it at your own risk.</p>
-    <p>Includes Intel PresentMon (MIT), ViVeTool (GPL-3.0), NvAPIWrapper (LGPL-3.0), Inter and Barlow fonts (OFL) and Fluent UI icons (MIT). Licences are included in the download.</p>
-  </div>
-</div></footer>
-<script src="assets/site.js"></script>
+</footer>
+<script src="assets/site.js?v=2.7.0"></script>
 </body>
 </html>

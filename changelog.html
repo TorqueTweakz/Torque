@@ -3,57 +3,69 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Changelog — TORQUE</title>
-<meta name="description" content="Release notes for TORQUE, including what is new in v2.5, v2.4, v2.3, v2.2, v2.1 and v2.">
-<meta name="theme-color" content="#0b0c0e">
+<title>Changelog · TORQUE</title>
+<meta name="description" content="What changed in each TORQUE release.">
+<meta name="theme-color" content="#0B0D10">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; font-src 'self'; connect-src 'none'; frame-src 'none'; base-uri 'self'; form-action 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta property="og:title" content="Changelog · TORQUE">
+<meta property="og:description" content="What changed in each TORQUE release.">
+<meta property="og:image" content="https://torquetweakz.github.io/Torque/img/og.png">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Changelog — TORQUE">
-<meta property="og:description" content="Release notes for TORQUE, including what is new in v2.5, v2.4, v2.3, v2.2, v2.1 and v2.">
-<meta property="og:image" content="img/02-optimize.jpg">
-<meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="img/logo.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/style.css">
+<link rel="icon" href="img/icon-64.png">
+<link rel="preload" href="assets/fonts/manrope-800.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/style.css?v=2.7.0">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-<header class="site-header"><div class="wrap">
-  <a class="brand" href="index.html" aria-label="TORQUE home"><img src="img/logo.png" alt="" width="30" height="30">TORQUE</a>
-  <nav class="nav" id="nav" aria-label="Main"><a href="index.html">Home</a><a href="features.html">Features</a><a href="security.html">Security</a><a href="download.html">Download</a><a href="faq.html">FAQ</a><a href="community.html">Community</a></nav>
-  <div class="header-cta"><a class="btn btn-primary btn-sm" href="download.html">Download</a></div>
-  <button class="menu-btn" aria-label="Menu" aria-expanded="false" aria-controls="nav"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
-</div></header>
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="index.html" aria-label="TORQUE home"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="1" y="1" width="30" height="30" rx="10" fill="#14171B" stroke="#2A2F36" stroke-width="1.2"/>
+<path d="M8.6 18.6L16 9.6l7.4 9" fill="none" stroke="#ECEEF1" stroke-width="2.9" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M11.9 23.1L16 18.2l4.1 4.9" fill="none" stroke="#FF6B3D" stroke-width="2.9" stroke-linecap="round" stroke-linejoin="round"/></svg>TORQUE</a>
+    <nav class="links" aria-label="Main"><a href="index.html">Home</a><a href="features.html">Features</a><a href="plus.html">Plus</a><a href="tweaks.html">What it changes</a><a href="security.html">Safety</a><a href="faq.html">FAQ</a></nav>
+    <div class="cta"><a class="btn sm" href="https://discord.gg/BY3MgZftgC" rel="noopener">Discord</a><a class="btn sm primary" href="download.html">Download</a></div>
+    <button class="menu" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+  </div>
+</header>
 <main id="main">
-<section class="page-head"><div class="wrap">
-  <span class="eyebrow">Changelog</span>
-  <h1>Release notes</h1>
-  <p class="lead">A summary of notable changes in each TORQUE release.</p>
+<section class="hero" style="padding-bottom:10px"><div class="wrap"><span class="eyebrow accent">Changelog</span><h1>What's new.</h1></div></section>
+<section class="tight"><div class="wrap">
+<div class="rel"><div><div class="v">v2.7</div><div class="d">Free and Plus</div></div><div>
+<h4>New</h4><ul>
+<li>A new look across the whole app, with labelled navigation and a Tools hub.</li>
+<li>TORQUE Plus: a separate build with ULTRA, a 19-tweak Plus pack, Bottleneck Doctor, Game Boost Pro, custom presets, share codes and crosshair extras.</li>
+<li>Crosshair overlay (Ctrl+Alt+X), click-through and borderless-friendly.</li>
+<li>Your PC shows the top three fixes for your PC first.</li>
+<li>Ten new free tweaks, including startup delay off, Recall off, lock-screen ads off and hibernation off (desktops only).</li>
+<li>Evidence filter in Tweaks and a delete button on benchmark runs.</li></ul>
+<h4>Security</h4><ul>
+<li>Update info is now signed. The app ignores any update file that isn't signed with TORQUE's offline key.</li>
+<li>The Free download contains no Plus code. Plus tweaks are sent only to activated PCs, signed and bound to that PC.</li>
+<li>Tweaks from older versions that moved to Plus can still be reverted in Free.</li></ul>
+<h4>Changed</h4><ul>
+<li>ULTRA, the experimental tweaks, timer resolution, efficiency mode and standby clean-up moved to Plus. Anything you already applied stays applied and can be reverted.</li></ul></div></div>
+<div class="rel"><div><div class="v">v2.5</div><div class="d">Previous release</div></div><div><ul>
+<li>Update banner with notes and the official checksum.</li><li>Timer resolution in Game Boost.</li><li>Copy diagnostics button for support.</li><li>LOW / MED / MAX / ULTRA level filter; CPU temperature fix.</li></ul></div></div>
+<div class="rel"><div><div class="v">v2.4</div><div class="d">Process diet</div></div><div><ul>
+<li>Service grouping at MAX (typically 40 to 60 fewer processes after a restart).</li><li>More services to Manual, never Disabled.</li><li>Game Boost efficiency mode and High priority for supported games.</li><li>Fortnite renderer A/B in Benchmark Lab; ULTRA Memory Integrity option with anti-cheat checks.</li></ul></div></div>
+<div class="rel"><div><div class="v">v2.3 and earlier</div><div class="d">Foundations</div></div><div><ul>
+<li>TORQUE on/off switch, ULTRA level, custom game setups (2.3).</li><li>Permission handling, share files, global shortcuts (2.2).</li><li>Low performance mode (2.1).</li><li>Latency tweaks and the Windows Low Latency Profile (2.0).</li></ul></div></div>
 </div></section>
-<section class="section"><div class="wrap"><div class="prose" style="max-width:900px">
-<div class="release"><div class="ver">v2.5<small>Current beta</small></div><div><h3>Added</h3><ul><li><strong>Update banner.</strong> TORQUE can read one small file (<code>latest.json</code>) from this website and show &ldquo;update available&rdquo; with the patch notes and the official checksum. It never downloads or installs anything and can be switched off in Settings.</li><li><strong>Timer resolution.</strong> While Game Boost sees a game running, TORQUE asks Windows for its finest clock tick (usually 0.5 ms, default 15.6 ms) and gives it back when the game closes. A new MAX tweak, &ldquo;Global timer resolution requests&rdquo;, lets that request help the whole PC on Windows 11 (restart needed). Gains depend on your PC and game, and it can raise idle power use slightly.</li><li><strong>Copy diagnostics.</strong> One button in Settings copies your Windows build, hardware, TORQUE version, key settings and the last 25 log lines for Discord support. No files or passwords.</li><li><strong>Join the Discord</strong> card on the Dashboard (dismissible) and a button in Settings.</li><li><strong>Optional live-user counter</strong>, off by default and anonymous (random id and version number only). It only works once the server side is published.</li><li><strong>Feature-flag groundwork</strong> for a future paid version. Nothing is locked: everything stays free, and Revert, safety checks, backups and diagnostics can never be locked.</li></ul><h3>Fixed</h3><ul><li>The Tweaks Library level filter now says LOW / MED / MAX / ULTRA.</li><li>Bogus low ACPI readings (such as 17&deg;C) are no longer shown as CPU temperature.</li></ul></div></div>
-<div class="release"><div class="ver">v2.4<small>Previous release</small></div><div><h3>Added</h3><ul><li><strong>Process diet (MAX).</strong> Windows services are grouped into shared svchost processes again (sized to your RAM), which typically removes 40–60 processes after a restart. The Windows Search indexer goes to Manual and Store apps are blocked from running in the background through Group Policy.</li><li><strong>More services set to Manual, never Disabled:</strong> Program Compatibility Assistant, Storage Service, Offline Files, Internet Connection Sharing, Parental Controls monitor and the Adobe updater (if installed). The Print Spooler goes to Manual only if no real printer is found.</li><li><strong>Game Boost efficiency mode.</strong> While a game runs, browsers, launcher web helpers, sync tools, Phone Link and Widgets are put into Windows Efficiency mode at below-normal priority, then restored when you quit. Discord, OBS/Medal and protected apps are never touched. Standby RAM is cleared only when free memory runs low.</li><li><strong>Games start at High priority</strong> (Fortnite, CS2, Apex, Rocket League, Marvel Rivals) through Windows' Image File Execution Options. VALORANT is left alone.</li><li><strong>Fortnite renderer A/B</strong> in Benchmark Lab: switch between Performance (DX12) and Legacy Performance (DX11) and compare them on your own PC.</li><li><strong>ULTRA: Memory Integrity / VBS off</strong> (opt-in security trade-off, ~3–6% FPS measured by Tom's Hardware). Skipped automatically if Riot Vanguard or FACEIT is installed; Health Check turns it back on in one click if you install them later.</li><li><strong>Process counter</strong> on the Dashboard: processes now vs. before TORQUE, with a breakdown of what's still running.</li></ul><h3>Fixed</h3><ul><li>Fortnite's rendering mode: since v37, Performance mode runs on DirectX 12. TORQUE was selecting the old DX11 version, which is now called "Legacy Performance". It now defaults to the current Performance mode, with Legacy DX11 available as an option.</li><li>More auto-start apps are turned off (Overwolf, CurseForge, Lively, Creative Cloud, Grammarly; Zoom at MAX).</li></ul></div></div>
-<div class="release"><div class="ver">v2.3<small>Process &amp; levels</small></div><div><h3>Added</h3><ul><li><strong>TORQUE on/off switch</strong> in the sidebar. Switching it off reverts everything TORQUE changed and returns the PC to stock, which is useful for recording a baseline.</li><li><strong>ULTRA level</strong> above MAX, including all experimental tweaks and hardware GPU scheduling. Shows a warning first and offers a restart afterwards.</li><li><strong>Custom setups per game.</strong> Choose each setting individually (rendering mode, shadows, Reflex, V-Sync and more). Saved per game and used by Auto-configure and Optimize.</li><li>Loading indicators throughout, with spinners on buttons plus a progress bar and status pill.</li></ul><h3>Changed</h3><ul><li>LOW, MED and MAX no longer include hardware GPU scheduling, since it requires a restart.</li></ul><h3>Fixed</h3><ul><li>Graphics page error on second visit.</li><li>The level now returns to STOCK when everything is reverted.</li><li>Tweaks that already match Windows' own setting now display &ldquo;Windows already set&rdquo;.</li><li>Color sliders now always respond; moving them turns gamma on.</li></ul></div></div>
-<div class="release"><div class="ver">v2.2<small>Permissions</small></div><div><h3>Added</h3><ul><li><strong>Permission handling.</strong> TORQUE checks for administrator rights and offers to restart as administrator. Changes blocked by Windows are rolled back with a plain-language reason and a suggested fix.</li><li><strong>Share your setup.</strong> Export and import <code>.torque</code> profiles without passwords, backups or file paths.</li><li><strong>Global shortcuts</strong> that work in-game: Ctrl+Alt+B toggles Game Boost and Ctrl+Alt+T opens TORQUE. These can be disabled in Settings.</li></ul><h3>Changed</h3><ul><li>Each install now creates its own password or skips it; there is no shared default.</li></ul></div></div>
-<div class="release"><div class="ver">v2.1<small>Efficiency</small></div><div><h3>Added</h3><ul><li><strong>Low Performance mode</strong> (Personalize → Performance: Auto / Low performance / Full quality). Auto enables it in virtual machines, remote desktops and on PCs without full GPU rendering.</li></ul><h3>Improved</h3><ul><li>Under software rendering, dashboard CPU use fell from roughly 183% of a core to about 7%, the lock screen from roughly 130% to about 3%, and memory use dropped by about 135 MB.</li><li>Animated backgrounds pause when TORQUE is not the active window, statistics stop polling when the window is hidden, and memory is returned to Windows on minimize.</li><li>Temperature queries run every 5 seconds instead of every second, and the executable is precompiled (ReadyToRun) for faster launch.</li></ul></div></div>
-<div class="release"><div class="ver">v2.0<small>Latency tweaks</small></div><div><h3>Added</h3><ul><li>Windows Low Latency Profile (MAX) via hash-checked ViVeTool, on supported builds.</li><li>USB selective suspend off, Edge background mode off and fastest keyboard repeat.</li><li>PCIe link power management, CPU energy preference and network adapter power-saving tweaks.</li><li>Opt-in experimental tweaks: interrupt moderation off, GPU MSI mode, memory compression off and QoS DSCP 46 for games.</li></ul></div></div>
-</div></div></section>
-
 </main>
-<footer class="site-footer"><div class="wrap">
-  <div class="footer-grid">
-    <div class="footer-about"><a class="brand" href="index.html"><img src="img/logo.png" alt="" width="30" height="30">TORQUE</a>
-      <p>A transparent, reversible performance suite for Windows gaming PCs. Currently in free public beta.</p></div>
-    <div><h4>Product</h4><ul><li><a href="features.html">Features</a></li><li><a href="tweaks.html">Tweak reference</a></li><li><a href="changelog.html">Changelog</a></li><li><a href="download.html">Download</a></li></ul></div>
-    <div><h4>Resources</h4><ul><li><a href="security.html">Security &amp; transparency</a></li><li><a href="faq.html">FAQ</a></li><li><a href="download.html#install">Installation guide</a></li><li><a href="privacy.html">Privacy &amp; terms</a></li></ul></div>
-    <div><h4>Community</h4><ul><li><a href="community.html" data-discord>Discord server</a></li><li><a href="community.html#support">Get support</a></li><li><a href="community.html#feedback">Share feedback</a></li></ul></div>
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div><a class="brand" href="index.html"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="1" y="1" width="30" height="30" rx="10" fill="#14171B" stroke="#2A2F36" stroke-width="1.2"/>
+<path d="M8.6 18.6L16 9.6l7.4 9" fill="none" stroke="#ECEEF1" stroke-width="2.9" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M11.9 23.1L16 18.2l4.1 4.9" fill="none" stroke="#FF6B3D" stroke-width="2.9" stroke-linecap="round" stroke-linejoin="round"/></svg>TORQUE</a><p style="margin-top:14px;max-width:340px">A transparent, reversible performance suite for Windows gaming PCs. Every change is previewed, backed up and undoable.</p></div>
+      <div><h5>Product</h5><a href="features.html">Features</a><a href="plus.html">TORQUE Plus</a><a href="tweaks.html">What it changes</a><a href="changelog.html">Changelog</a><a href="download.html">Download</a></div>
+      <div><h5>Trust</h5><a href="security.html">Safety &amp; security</a><a href="privacy.html">Privacy &amp; terms</a><a href="faq.html">FAQ</a></div>
+      <div><h5>Community</h5><a href="https://discord.gg/BY3MgZftgC" rel="noopener">Discord server</a><a href="community.html">Get support</a></div>
+    </div>
+    <div class="fine">TORQUE v2.7. Not affiliated with or endorsed by Microsoft, NVIDIA, AMD, Epic Games, Riot Games or any game publisher; all trademarks belong to their owners. TORQUE changes system settings: every change is backed up and can be reverted, but you use it at your own risk. Includes Intel PresentMon (MIT), ViVeTool (GPL-3.0), NvAPIWrapper (LGPL-3.0), Manrope and Inter fonts (OFL) and Fluent UI icons (MIT); licences are included in the download.</div>
   </div>
-  <div class="legal">
-    <p>TORQUE beta v2.5. Not affiliated with or endorsed by Microsoft, NVIDIA, Epic Games or any game publisher; all trademarks belong to their owners. TORQUE changes system settings: every change is backed up and can be reverted, but you use it at your own risk.</p>
-    <p>Includes Intel PresentMon (MIT), ViVeTool (GPL-3.0), NvAPIWrapper (LGPL-3.0), Inter and Barlow fonts (OFL) and Fluent UI icons (MIT). Licences are included in the download.</p>
-  </div>
-</div></footer>
-<script src="assets/site.js"></script>
+</footer>
+<script src="assets/site.js?v=2.7.0"></script>
 </body>
 </html>
